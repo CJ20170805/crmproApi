@@ -2,7 +2,7 @@
 include "./connect_db.php";
 
 $un = $_GET['un'];
-$pe = $_GET['pw'];
+$pw = $_GET['pw'];
 
 $query_res = '';
 // 检测用户名及密码是否正确

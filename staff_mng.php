@@ -61,6 +61,26 @@ if (mysqli_query($conn, $insert_db)){
 	} else {
 	  echo "Del false".mysqli_error($conn);
 	};
+} else if($st_flag === 'update'){
+	 $st_id = $_POST['st_id'];
+	 $st_name = $_POST['st_name'];
+	 $st_sex = $_POST['st_sex'];
+	 $st_joinDate = $_POST['st_joinDate'];
+	 $st_cardNum = $_POST['st_cardNum'];
+	 $st_address = $_POST['st_address'];
+	 $st_nowAddress = $_POST['st_nowAddress'];
+	 $st_staffPhone = $_POST['st_staffPhone'];
+	 $st_staffPhone2= $_POST['st_staffPhone2'];
+	 $st_departmentVal = $_POST['st_departmentVal'];
+	 $st_jobVal = $_POST['st_jobVal'];
+	 $st_elseInfo = $_POST['st_elseInfo'];
+
+	$ud = "UPDATE staff SET st_name = '$st_name', st_sex = '$st_sex', st_joinDate = '$st_joinDate', st_cardNum = '$st_cardNum', st_address = '$st_address', st_nowAddress = '$st_nowAddress', st_staffPhone = '$st_staffPhone', st_staffPhone2 = '$st_staffPhone2', st_departmentVal = '$st_departmentVal', st_jobVal = '$st_jobVal', st_elseInfo = '$st_elseInfo' WHERE id = '$st_id'";
+	if (mysqli_query($conn, $ud)){
+       echo "Set Successs!!!!!";     
+	} else {
+	  echo "Error".mysqli_error($conn);
+	}
 } else {
 	echo 'No sql command!!!';
 }

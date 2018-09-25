@@ -8,10 +8,15 @@ $query_res = '';
 // 检测用户名及密码是否正确
 $form_sql = "select * from loginform where username = '$un' and password = '$pw' limit 1";
 
-$login_result = mysqli_query($conn, $form_sql);
-$row = mysqli_fetch_array($login_result);
+$form_sql2 = "select * from staff where st_name = '$un' and st_word = '$pw' limit 1";
 
-if($row > 0){
+$login_result = mysqli_query($conn, $form_sql);
+$login_result2 = mysqli_query($conn, $form_sql2);
+
+$row = mysqli_fetch_array($login_result);
+$row2 = mysqli_fetch_array($login_result2);
+
+if($row > 0 || $row2 > 0){
   $query_res = '10000';
 } else {
   $query_res = '10001';

@@ -20,6 +20,7 @@ if($row > 0 || $row2 > 0){
   $query_res = '10000';
 } else {
   $query_res = '10001';
+  echo $pw;
 };
 
 $login_arr = array("userName"=>$un,"loginCode"=>$query_res);

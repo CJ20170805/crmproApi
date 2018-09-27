@@ -15,6 +15,10 @@ $login_result2 = mysqli_query($conn, $form_sql2);
 
 $row = mysqli_fetch_array($login_result);
 $row2 = mysqli_fetch_array($login_result2);
+// if (!$row2 || !$row) {
+//  printf("Error: %s\n", mysqli_error($conn));
+//  exit();
+// }
 
 if($row > 0 || $row2 > 0){
   $query_res = '10000';

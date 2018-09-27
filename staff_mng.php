@@ -1,29 +1,6 @@
 <?php
  include "./connect_db.php";
 
- // 使用 sql 创建数据表
-    // $sql = "CREATE TABLE staff (
-    // id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    // st_name VARCHAR(30) NOT NULL,
-    // st_sex VARCHAR(30) NOT NULL,
-    // st_joinDate VARCHAR(30) NOT NULL,
-    // st_cardNum VARCHAR(30) NOT NULL,
-    // st_address VARCHAR(30) NOT NULL,
-    // st_nowAddress VARCHAR(30) NOT NULL,
-    // st_staffPhone VARCHAR(30) NOT NULL,
-    // st_staffPhone2 VARCHAR(30) NOT NULL,
-    // st_departmentVal VARCHAR(30) NOT NULL,
-    // st_jobVal VARCHAR(30) NOT NULL,
-    // st_elseInfo VARCHAR(30) NOT NULL,
-    // reg_date TIMESTAMP
-    // )";
-
-    // if (mysqli_query($conn, $sql)) {
-    //     echo "数据表 MyGuests 创建成功";
-    // } else {
-    //     echo "create error staff".mysqli_error($conn);
-    // };
-
 $st_flag = $_POST['st_flag'];
 
 if ($st_flag === 'add') {

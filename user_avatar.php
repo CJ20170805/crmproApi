@@ -1,4 +1,5 @@
 <?php
+header("Content-Type:text/html;charset=utf-8");
  // 
  //     用户头像
  
@@ -10,16 +11,17 @@ if(!is_uploaded_file($file['tmp_name'])){
   return;
 };
 
-$fileNameURL = $file['name'];
+$fileName = iconv('utf-8', 'gb2312', $file['name']);
 
-$upload_path = "upload/userAvatar/"; //上传文件的存放路径
+$upload_path = "upload/userAvatar/".$fileName; //上传文件的存放路径
 
-$abUrl = $upload_path.$fileNameURL;
+
+
 // 开始移动文件到相应的文件夹
-if(move_uploaded_file($file['tmp_name'], $abUrl)){
+if(move_uploaded_file($file['tmp_name'], $upload_path)){
   // echo "Successfully!".$upload_path.$file['name'];
   // echo $abUrl;
-  echo "http://".$_SERVER['HTTP_HOST']."/"."crmproApi"."/".$upload_path.urldecode($fileNameURL);
+  echo "http://".$_SERVER['HTTP_HOST']."/"."crmproApi/upload/userAvatar"."/".$file['name'];
   // echo $_SERVER['DOCUMENT_ROOT'];
 }else{
   echo "Failed!";

@@ -39,6 +39,7 @@ if (mysqli_query($conn, $insert_db)){
 	  echo "Del false".mysqli_error($conn);
 	};
 } else if($st_flag === 'update'){
+
 	 $st_id = $_POST['st_id'];
 	 $st_name = $_POST['st_name'];
 	 $st_sex = $_POST['st_sex'];

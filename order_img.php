@@ -1,7 +1,7 @@
 <?php
 header("Content-Type:text/html;charset=utf-8");
  // 
- //     用户头像
+ //     订单 相关图片
  
 $file = $_FILES['file'];
 
@@ -21,7 +21,7 @@ $upload_path = "upload/orders/".$fileName; //上传文件的存放路径
 if(move_uploaded_file($file['tmp_name'], $upload_path)){
   // echo "Successfully!".$upload_path.$file['name'];
   // echo $abUrl;
-  echo "http://".$_SERVER['HTTP_HOST']."/"."crmproApi/upload/userAvatar"."/".$file['name'];
+  echo "http://".$_SERVER['HTTP_HOST']."/"."crmproApi/upload/orders"."/".$file['name'];
   // echo $_SERVER['DOCUMENT_ROOT'];
 }else{
   echo "Failed!";

@@ -53,8 +53,9 @@ $sql = "CREATE TABLE orders (
     combo_info VARCHAR(255) NOT NULL,
     pay_price VARCHAR(30) NOT NULL,
     time_limit VARCHAR(30) NOT NULL,
-    desc_info VARCHAR(255) NOT NULL,
-    some_img VARCHAR(255),
+    desc_info VARCHAR(500) NOT NULL,
+    some_img VARCHAR(1000),
+    sales_man VARCHAR(255) NOT NULL,
     reg_date TIMESTAMP
     )";
 

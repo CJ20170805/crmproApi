@@ -22,14 +22,15 @@ if ($flag === 'add') {
     $time_limit = $_POST['time_limit'];
     $desc_info = $_POST['desc_info'];
     $some_img = $_POST['some_img'];
+    $sales_man = $_POST['sales_man'];
 
 //$arr = array();
     echo $shop_name.$shop_url.$shop_id.$shop_type.$link_methods.$time_limit;
 
     $order_add = "INSERT INTO orders (shop_name, shop_url, shop_id, shop_type,
-link_man, link_methods, combo_info, pay_price, time_limit, desc_info, some_img) VALUES ('$shop_name',
+link_man, link_methods, combo_info, pay_price, time_limit, desc_info, some_img, sales_man) VALUES ('$shop_name',
  '$shop_url', '$shop_id', '$shop_type', '$link_man', '$link_methods',
- '$combo_info', '$pay_price', '$time_limit', '$desc_info', '$some_img')";
+ '$combo_info', '$pay_price', '$time_limit', '$desc_info', '$some_img', '$sales_man')";
 
     if (mysqli_query($conn, $order_add)) {
         echo "Add order suc!";

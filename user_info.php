@@ -52,4 +52,20 @@ echo $infoResJson;
     } else {
     	echo "update Avatar Error".mysqli_error($conn);
     };
-};
+} else if ($userCode === '400') {
+
+    // Get all user's name
+
+    $getNames = "SELECT st_name FROM staff";
+    $getNamesRes = mysqli_query($conn, $getNames);
+
+    $namesArr = array();
+    while($nameRow = mysqli_fetch_array($getNamesRes)){
+        array_push($namesArr, $nameRow);
+    };
+    $namesJson = json_encode($namesArr);
+    echo $namesJson;
+
+} else {
+    echo "UserInfo_Error:".mysqli_error($conn);
+}

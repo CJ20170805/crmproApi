@@ -56,7 +56,7 @@ echo $infoResJson;
 
     // Get all user's name
 
-    $getNames = "SELECT st_name FROM staff";
+    $getNames = "SELECT st_name, st_departmentVal FROM staff";
     $getNamesRes = mysqli_query($conn, $getNames);
 
     $namesArr = array();

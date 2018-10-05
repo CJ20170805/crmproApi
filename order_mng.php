@@ -25,7 +25,7 @@ if ($flag === 'add') {
     $sales_man = $_POST['sales_man'];
 
 //$arr = array();
-    echo $shop_name.$shop_url.$shop_id.$shop_type.$link_methods.$time_limit;
+    // echo $shop_name.$shop_url.$shop_id.$shop_type.$link_methods.$time_limit;
 
     $order_add = "INSERT INTO orders (shop_name, shop_url, shop_id, shop_type,
 link_man, link_methods, combo_info, pay_price, time_limit, desc_info, some_img, sales_man) VALUES ('$shop_name',
@@ -33,9 +33,9 @@ link_man, link_methods, combo_info, pay_price, time_limit, desc_info, some_img, 
  '$combo_info', '$pay_price', '$time_limit', '$desc_info', '$some_img', '$sales_man')";
 
     if (mysqli_query($conn, $order_add)) {
-        echo "Add order suc!";
+        echo "AddSUC";
     } else {
-        echo "Add false".mysqli_error($conn);
+        echo "AddFAL".mysqli_error($conn);
     };
 } else if ($flag === 'fetch') {
 //    echo "Begin Query!";

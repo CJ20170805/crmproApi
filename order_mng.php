@@ -50,7 +50,59 @@ link_man, link_methods, combo_info, pay_price, time_limit, desc_info, some_img, 
 
     echo $orderJson;
 
+} else if ($flag === 'dispense') {
+    
+     //  order dispense write in 
+    
+    $orderId = $_POST['orderId'];
+    $id = $_POST['id'];
+
+    // $orderWrite = "INSERT INTO staff (st_orders) VALUES ('$orderId') WHERE id=('$id')";
+    $orderWrite = "UPDATE staff SET st_orders = '$orderId' WHERE id = '$id'";
+    if(mysqli_query($conn, $orderWrite)){
+      echo "orderWriteSuc";
+    } else {
+      echo "orderWrite fail".mysqli_error($conn);
+    };
+} else if ($flag === 'dispenseFetch') {
+     
+    //  order num fetch
+
+    $userId = $_POST['userId'];
+
+    $queryOrder = mysqli_query($conn,"SELECT st_orders FROM staff WHERE id = '$userId'");
+
+    $queryOrderArr = array();
+
+    while ($row = mysqli_fetch_array($queryOrder, MYSQL_ASSOC)) {
+        array_push($queryOrderArr, $row);
+    };
+  
+    $queryJson = json_encode($queryOrderArr);
+    echo $queryJson;
+} else if ($flag === 'dispenseDetail') {
+    $orderNum = $_POST['orderNum'];
+    $order_fetch = "SELECT * FROM orders WHERE id = '$orderNum'";
+    $orderRes = mysqli_query($conn, $order_fetch);
+    $data =array();
+    while($orderRow = mysqli_fetch_array($orderRes, MYSQL_ASSOC)){
+        array_push($data, $orderRow);
+    };
+
+    $orderJson = json_encode($data);
+
+    echo $orderJson;
+} else if ($flag === 'delOrder') {
+     $del_id = $_POST['delId'];
+    // $del_name = $_POST['del_name'];
+    //  // echo $del_name;
+    $del_db = "DELETE FROM orders WHERE id = '$del_id'";
+
+    if (mysqli_query($conn, $del_db)){
+       echo "DelOrderSuc";
+    } else {
+      echo "Del false".mysqli_error($conn);
+    };
 } else {
     echo "Order Error(No set flag?)";
 };
-

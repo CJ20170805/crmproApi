@@ -56,7 +56,7 @@ include "./connect_db.php";
 //     time_limit VARCHAR(30) NOT NULL,
 //     desc_info VARCHAR(500) NOT NULL,
 //     some_img VARCHAR(1000),
-//     sales_man VARCHAR(255) NOT NULL,
+//     sales_man VARCHAR(255),
 //     reg_date TIMESTAMP
 //     )";
 

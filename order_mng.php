@@ -53,11 +53,24 @@ link_man, link_methods, combo_info, pay_price, time_limit, desc_info, some_img, 
 } else if ($flag === 'dispense') {
     
      //  order dispense write in 
-    
     $orderId = $_POST['orderId'];
     $id = $_POST['id'];
+     
+    // query before order's num
+    
+    $beforeOrderNum = mysqli_query($conn,"SELECT st_orders FROM staff WHERE id = '$id'");
+
+
+    while ($row = mysqli_fetch_array($beforeOrderNum, MYSQL_ASSOC)) {
+        // array_push($beforeOrderNumArr, $row);
+        $orderId .= ",".$row[st_orders];
+    };
+    // echo $orderId;
+  
+    // $queryJson = json_encode($beforeOrderNumArr);
 
     // $orderWrite = "INSERT INTO staff (st_orders) VALUES ('$orderId') WHERE id=('$id')";
+    // 
     $orderWrite = "UPDATE staff SET st_orders = '$orderId' WHERE id = '$id'";
     if(mysqli_query($conn, $orderWrite)){
       echo "orderWriteSuc";
@@ -81,17 +94,32 @@ link_man, link_methods, combo_info, pay_price, time_limit, desc_info, some_img, 
     $queryJson = json_encode($queryOrderArr);
     echo $queryJson;
 } else if ($flag === 'dispenseDetail') {
+
     $orderNum = $_POST['orderNum'];
-    $order_fetch = "SELECT * FROM orders WHERE id = '$orderNum'";
-    $orderRes = mysqli_query($conn, $order_fetch);
-    $data =array();
-    while($orderRow = mysqli_fetch_array($orderRes, MYSQL_ASSOC)){
-        array_push($data, $orderRow);
+    $ordersItem = $_POST['ordersItem'];
+    $ordersItemArr = explode(',', $ordersItem);
+    $ordersDetailArr = array();
+    foreach ($ordersItemArr as $key => $value) {
+      // echo "aaa".$value;
+      // 
+      // 循环获取 对象 放置外部数组内 ， 并返回外部数组的json
+      // 
+      $order_fetch = "SELECT * FROM orders WHERE id = '$value'";
+      $orderRes = mysqli_query($conn, $order_fetch);
+
+       while($orderRow = mysqli_fetch_array($orderRes, MYSQL_ASSOC)){
+            array_push($ordersDetailArr, $orderRow);
+        };
+
+      // array_push($ordersDetailArr, $data);
+    
     };
 
-    $orderJson = json_encode($data);
+    $orderJson = json_encode($ordersDetailArr);
 
     echo $orderJson;
+
+    
 } else if ($flag === 'delOrder') {
      $del_id = $_POST['delId'];
     // $del_name = $_POST['del_name'];

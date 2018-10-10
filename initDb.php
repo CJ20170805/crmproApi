@@ -71,3 +71,20 @@ include "./connect_db.php";
 // } else {
 //     echo "Primary change error".mysqli_error($conn);
 // };
+// 
+ // 使用 sql 创建数据表
+   $sql = "CREATE TABLE acord (
+   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+   order_id VARCHAR(30) NOT NULL,
+   acord_title VARCHAR(255) NOT NULL,
+   acord_content VARCHAR(1000) NOT NULL,
+   acord_man VARCHAR(30) NOT NULL,
+   acord_img VARCHAR(1000) NOT NULL,
+   reg_date TIMESTAMP
+   )";
+
+   if (mysqli_query($conn, $sql)) {
+       echo "acord数据表创建成功";
+   } else {
+       echo "create error staff".mysqli_error($conn);
+   };

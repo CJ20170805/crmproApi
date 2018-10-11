@@ -16,6 +16,7 @@ include "./connect_db.php";
 //    st_jobVal VARCHAR(30) NOT NULL,
 //    st_elseInfo VARCHAR(30) NOT NULL,
 //    st_word VARCHAR(30) NOT NULL DEFAULT '12321',
+//    st_power VARCHAR(30) NOT NULL,
 //    st_avatar VARCHAR(255),
 //    st_orders VARCHAR(255),
 //    reg_date TIMESTAMP

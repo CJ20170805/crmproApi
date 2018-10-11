@@ -1,4 +1,5 @@
 <?php
+include "./connect_db.php";
  $flag = $_POST['flag'];
 
  if ($flag === 'addAcord') {
@@ -10,17 +11,15 @@
 
 //  echo $order_id.$acord_title.$acord_content.$acord_man.$acord_img;
 
-     include "./connect_db.php";
-
      $acord_add = "INSERT INTO acord (order_id, acord_title, acord_content, acord_man, acord_img) 
 VALUES ('$order_id', '$acord_title', '$acord_content', '$acord_man', '$acord_img')";
 
      if (mysqli_query($conn, $acord_add)) {
-         echo "AddSUC";
+         echo "addAcordSuc";
      } else {
          echo "AddFAL".mysqli_error($conn);
      };
- } elseif ($flag === "fetchAcord") {
+ } elseif ($flag === 'fetchAcord') {
 
      //  order num fetch
 
@@ -28,13 +27,11 @@ VALUES ('$order_id', '$acord_title', '$acord_content', '$acord_man', '$acord_img
 //
 //     $queryRes = mysqli_query($conn,"SELECT * FROM acord WHERE order_id = '$order_id'");
 
-     $acord_fetch = "SELECT * FROM acord WHERE order_id = '$order_id'";
-
-     $queryRes = mysqli_query($conn, $acord_fetch);
+     $queryRes = mysqli_query($conn, "SELECT * FROM acord WHERE order_id = '$order_id'");
 
      $queryAcordArr = array();
 
-     while ($row = mysqli_fetch_array($queryRes, MYSQL_ASSOC)) {
+     while($row = mysqli_fetch_array($queryRes, MYSQL_ASSOC)) {
 
          array_push($queryAcordArr, $row);
 

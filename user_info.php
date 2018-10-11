@@ -9,6 +9,12 @@ if ($userCode === '100') {
 
 // Catch login user's info
 
+
+    //   全部权限   80001
+//     销售      80002
+//     运营      80003
+//     人事      80004
+
 $username = $_POST['username'];
 
 $loginInfo = "SELECT * FROM staff WHERE st_name = '$username'";

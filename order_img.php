@@ -11,9 +11,9 @@ if(!is_uploaded_file($file['tmp_name'])){
   return;
 };
 
-$fileName = iconv('utf-8', 'gb2312', $file['name']);
+//$fileName = iconv('utf-8', 'gb2312', $file['name']);
 
-$upload_path = "upload/orders/".$fileName; //上传文件的存放路径
+$upload_path = "upload/orders/".$file['name']; //上传文件的存放路径
 
 
 
@@ -21,7 +21,7 @@ $upload_path = "upload/orders/".$fileName; //上传文件的存放路径
 if(move_uploaded_file($file['tmp_name'], $upload_path)){
   // echo "Successfully!".$upload_path.$file['name'];
   // echo $abUrl;
-  echo "http://".$_SERVER['HTTP_HOST']."/"."crmproApi/upload/orders"."/".$file['name'];
+  echo "http://".$_SERVER['HTTP_HOST']."/"."crmApi/upload/orders"."/".$file['name'];
   // echo $_SERVER['DOCUMENT_ROOT'];
 }else{
   echo "Failed!";

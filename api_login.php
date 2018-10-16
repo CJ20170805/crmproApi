@@ -14,6 +14,7 @@ $login_result = mysqli_query($conn, $form_sql);
 $login_result2 = mysqli_query($conn, $form_sql2);
 
 $row = mysqli_fetch_array($login_result);
+
 $row2 = mysqli_fetch_array($login_result2);
 
 // if (!$row2 || !$row) {

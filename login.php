@@ -20,31 +20,31 @@ include "./connect_db.php";
 //   if (mysqli_query($conn, $sql)) {
 //       echo "数据表 MyGuests 创建成功";
 //   }
+//  登录
 
-//登录
-if(!isset($_POST['username'])){
-    exit('非法访问!');
-}
+//if(!isset($_POST['username'])){
+//    exit('非法访问!');
+//}
+//$username = $_POST['username'];
+//$password = $_POST['password'];
+//
+////检测用户名及密码是否正确
+//$form_sql = "select * from loginform where st_name = '$username' and st_word = '$password' limit 1";
+//$result = mysqli_query($conn, $form_sql);
+//
+//if($row = mysqli_fetch_array($result)){
+//   // 登录成功
+//    session_start();
+//    $_SESSION['username'] = $row['username'];
+//    $_SESSION['password'] = $row['password'];
+//
+//    header('Location: ../index.php');
+//    exit;
+//} else {
+//    exit('登录失败！点击此处 <a href="javascript:history.back(-1);">返回</a> 重试');
+//};
 
-$username = $_POST['username'];
-$password = $_POST['password'];
-
-//检测用户名及密码是否正确
-$form_sql = "select * from loginform where username = '$username' and password = '$password' limit 1";
-$result = mysqli_query($conn, $form_sql);
-
-if($row = mysqli_fetch_array($result)){
-   // 登录成功
-    session_start();
-    $_SESSION['username'] = $row['username'];
-    $_SESSION['password'] = $row['password'];
-
-    header('Location: ../index.php');
-    exit;
-} else {
-    exit('登录失败！点击此处 <a href="javascript:history.back(-1);">返回</a> 重试');
-};
-
+header('Location: ../index.php');
 
 //while($row = mysqli_fetch_array($result))
 //{

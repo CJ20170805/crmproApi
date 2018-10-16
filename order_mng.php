@@ -19,6 +19,9 @@ if ($flag === 'add') {
     $link_methods = $_POST['link_methods'];
     $combo_info = $_POST['combo_info'];
     $pay_price = $_POST['pay_price'];
+    $pay_id = $_POST['pay_id'];
+    $pay_methods = $_POST['pay_methods'];
+    $pay_date = $_POST['pay_date'];
     $time_limit = $_POST['time_limit'];
     $desc_info = $_POST['desc_info'];
     $some_img = $_POST['some_img'];
@@ -28,9 +31,9 @@ if ($flag === 'add') {
     // echo $shop_name.$shop_url.$shop_id.$shop_type.$link_methods.$time_limit;
 
     $order_add = "INSERT INTO orders (shop_name, shop_url, shop_id, shop_type,
-link_man, link_methods, combo_info, pay_price, time_limit, desc_info, some_img, sales_man) VALUES ('$shop_name',
+link_man, link_methods, combo_info, pay_price, pay_id, pay_methods, pay_date, time_limit, desc_info, some_img, sales_man) VALUES ('$shop_name',
  '$shop_url', '$shop_id', '$shop_type', '$link_man', '$link_methods',
- '$combo_info', '$pay_price', '$time_limit', '$desc_info', '$some_img', '$sales_man')";
+ '$combo_info', '$pay_price', '$pay_id', '$pay_methods', '$pay_date', '$time_limit', '$desc_info', '$some_img', '$sales_man')";
 
     if (mysqli_query($conn, $order_add)) {
         echo "AddSUC";

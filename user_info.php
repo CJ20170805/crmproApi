@@ -67,7 +67,7 @@ echo $infoResJson;
     $getNamesRes = mysqli_query($conn, $getNames);
 
     $namesArr = array();
-    while($nameRow = mysqli_fetch_array($getNamesRes)){
+    while($nameRow = mysqli_fetch_array($getNamesRes, MYSQL_ASSOC)){
         array_push($namesArr, $nameRow);
     };
     $namesJson = json_encode($namesArr);

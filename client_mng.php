@@ -45,4 +45,20 @@ client_intent, sales_man, link_date, link_channel, desc_info, write_man, files) 
     };
 
     echo json_encode($data);;
+} elseif ($flag === 'delClient'){
+
+    $delId = $_POST['delId'];
+
+    $del_db = "DELETE FROM client WHERE id = '$delId'";
+
+    if (mysqli_query($conn, $del_db)){
+
+        echo "delClientSuc";
+
+    } else {
+        echo "Del false".mysqli_error($conn);
+    };
+
+} else{
+    echo "Unset client flag!";
 };

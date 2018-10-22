@@ -50,7 +50,7 @@ client_name, buy_serv, serv_price, time_limit, pay_price, pay_id, rec_id, deal_i
         array_push($data, $row);
     };
 
-    echo json_encode($data);;
+    echo json_encode($data);
 } elseif ($flag === 'delPm'){
 
     $delId = $_POST['delId'];
@@ -64,6 +64,23 @@ client_name, buy_serv, serv_price, time_limit, pay_price, pay_id, rec_id, deal_i
     } else {
         echo "Del false".mysqli_error($conn);
     };
+} elseif ($flag === 'conditionFetch') {
+
+    $begin = $_POST['begin'];
+
+    $end = $_POST['end'];
+
+//    echo $end."ConditionFetch!!!!".$begin;
+
+    $client_fetch = "SELECT * FROM pm WHERE reg_date BETWEEN '$begin' AND '$end'";
+    $clientRes = mysqli_query($conn, $client_fetch);
+    $data =array();
+    while($row = mysqli_fetch_array($clientRes, MYSQL_ASSOC)){
+        array_push($data, $row);
+    };
+
+    echo json_encode($data);
+
 
 } else{
     echo "Unset PM flag!";

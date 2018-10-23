@@ -49,6 +49,9 @@ function exportExcel($arr, $name) {
     $objPHPExcel->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);
     $objPHPExcel->getActiveSheet()->getColumnDimension('F')->setAutoSize(true);
     $objPHPExcel->getActiveSheet()->getColumnDimension('G')->setAutoSize(true);
+    $objPHPExcel->getActiveSheet()->getColumnDimension('H')->setAutoSize(true);
+    $objPHPExcel->getActiveSheet()->getColumnDimension('I')->setAutoSize(true);
+    $objPHPExcel->getActiveSheet()->getColumnDimension('J')->setAutoSize(true);
     $objPHPExcel->getActiveSheet()->getColumnDimension('K')->setAutoSize(true);
     $objPHPExcel->getActiveSheet()->getColumnDimension('L')->setAutoSize(true);
     $objPHPExcel->getActiveSheet()->getColumnDimension('M')->setAutoSize(true);
@@ -93,13 +96,44 @@ function exportExcel($arr, $name) {
 }
 
 
-$res = mysqli_query($conn, "SELECT * FROM pm");
+//$res = mysqli_query($conn, "SELECT * FROM pm");
+//
+//$arr =array();
+//
+//while ($row = mysqli_fetch_array($res, MYSQL_ASSOC)){
+////    echo $row[0]."\t".$row[1]."\t".$row[2]."\t\n";
+//    array_push($arr, $row);
+//};
 
-$arr =array();
 
-while ($row = mysqli_fetch_array($res, MYSQL_ASSOC)){
-//    echo $row[0]."\t".$row[1]."\t".$row[2]."\t\n";
-    array_push($arr, $row);
+$bn = $_GET['bn'];
+
+$ed = $_GET['ed'];
+
+$sid = $_GET['sid'];
+
+//    echo $end."ConditionFetch!!!!".$begin;
+
+if($bn && $ed !== ""){
+    $client_fetch = "SELECT * FROM pm WHERE reg_date BETWEEN '$bn' AND '$ed'";
+    $clientRes = mysqli_query($conn, $client_fetch);
+    $data =array();
+    while($row = mysqli_fetch_array($clientRes, MYSQL_ASSOC)){
+        array_push($data, $row);
+    };
+
+    $excel = exportExcel($data, 'PerformanceDataExport');
+} elseif ($sid !== ""){
+//    echo gettype($sid);
+//   $ids = explode(",", $sid);
+   $select_query = "SELECT * FROM pm WHERE id in ($sid)";
+   $selectRes = mysqli_query($conn, $select_query);
+   $data2 =array();
+    while($row = mysqli_fetch_array($selectRes, MYSQL_ASSOC)){
+        array_push($data2, $row);
+    };
+
+    $excel2 = exportExcel($data2, 'PerformanceDataExport');
+} else {
+    exit;
 };
-
-$excel = exportExcel($arr, 'avc');

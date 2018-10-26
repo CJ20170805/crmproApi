@@ -73,23 +73,26 @@ function exportExcel($arr, $name) {
             ->setCellValue('D'.$key, $v['reach_date'])
             ->setCellValue('E'.$key, $v['client_name'])
             ->setCellValue('F'.$key, $v['buy_serv'])
-            ->setCellValue('G'.$key, $v['serv_price'])
+            ->setCellValue('G'.$key, "\t".$v['serv_price'])
             ->setCellValue('H'.$key, $v['time_limit'])
             ->setCellValue('I'.$key, $v['pay_price'])
-            ->setCellValue('J'.$key, $v['pay_id'])
-            ->setCellValue('K'.$key, $v['rec_id'])
-            ->setCellValue('L'.$key, $v['deal_id'])
+            ->setCellValue('J'.$key, "\t".$v['pay_id'])
+            ->setCellValue('K'.$key, "\t".$v['rec_id'])
+            ->setCellValue('L'.$key, "\t".$v['deal_id'])
             ->setCellValue('M'.$key, $v['else_desc'])
             ->setCellValue('N'.$key, $v['reg_date']);
 
     }
 //设置当前的表格
     $objPHPExcel->setActiveSheetIndex(0);
+
     ob_end_clean();  //清除缓冲区,避免乱码
+
     header('Content-Type: application/vnd.ms-excel'); //文件类型
     header('Content-Disposition: attachment;filename="'.$name.'.xls"'); //文件名
     header('Cache-Control: max-age=0');
     header('Content-Type: text/html; charset=utf-8'); //编码
+
     $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');  //excel 2003
     $objWriter->save('php://output');
     exit;

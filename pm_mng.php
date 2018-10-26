@@ -26,14 +26,15 @@ if ($flag === 'add') {
     $deal_id = $_POST['deal_id'];
     $else_desc = $_POST['else_desc'];
     $upload_imgs = $_POST['upload_imgs'];
+    $buy_type = $_POST['buy_type'];
 
 //    echo $pay_price.$pay_id.$rec_id.$deal_id.$else_desc.$upload_imgs;
 //    echo $client_name.$sales_man;
 
     $pm_add = "INSERT INTO pm (reach_id, reach_apart, reach_name, reach_date,
-client_name, buy_serv, serv_price, time_limit, pay_price, pay_id, rec_id, deal_id, else_desc, upload_imgs) VALUES ('$id',
+client_name, buy_serv, serv_price, time_limit, pay_price, pay_id, rec_id, deal_id, else_desc, upload_imgs, buy_type) VALUES ('$id',
  '$apart', '$name', '$reach_date', '$client_name', '$buy_serv',
- '$serv_price', '$time_limit', '$pay_price', '$pay_id', '$rec_id', '$deal_id', '$else_desc', '$upload_imgs')";
+ '$serv_price', '$time_limit', '$pay_price', '$pay_id', '$rec_id', '$deal_id', '$else_desc', '$upload_imgs', '$buy_type')";
 
     if (mysqli_query($conn, $pm_add)) {
         echo "AddSUC";

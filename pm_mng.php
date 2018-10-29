@@ -32,9 +32,9 @@ if ($flag === 'add') {
 //    echo $client_name.$sales_man;
 
     $pm_add = "INSERT INTO pm (reach_id, reach_apart, reach_name, reach_date,
-client_name, buy_serv, serv_price, time_limit, pay_price, pay_id, rec_id, deal_id, else_desc, upload_imgs, buy_type) VALUES ('$id',
+client_name, buy_serv, serv_price, time_limit, pay_price, pay_id, rec_id, deal_id, else_desc, upload_imgs, buy_type, $buy_type) VALUES ('$id',
  '$apart', '$name', '$reach_date', '$client_name', '$buy_serv',
- '$serv_price', '$time_limit', '$pay_price', '$pay_id', '$rec_id', '$deal_id', '$else_desc', '$upload_imgs', '$buy_type')";
+ '$serv_price', '$time_limit', '$pay_price', '$pay_id', '$rec_id', '$deal_id', '$else_desc', '$upload_imgs', '$buy_type', '$pay_price')";
 
     if (mysqli_query($conn, $pm_add)) {
         echo "AddSUC";
@@ -83,6 +83,37 @@ client_name, buy_serv, serv_price, time_limit, pay_price, pay_id, rec_id, deal_i
     echo json_encode($data);
 
 
-} else{
+} elseif ($flag === 'conditionFetchToday') {
+
+    $begin = $_POST['begin'];
+
+//    echo $end."ConditionFetch!!!!".$begin;
+
+    $client_fetch = "SELECT * FROM pm WHERE reg_date LIKE '$begin%'";
+    $clientRes = mysqli_query($conn, $client_fetch);
+    $data =array();
+    while($row = mysqli_fetch_array($clientRes, MYSQL_ASSOC)){
+        array_push($data, $row);
+    };
+
+    echo json_encode($data);
+
+} elseif ($flag === 'conditionFetchLastWeek') {
+
+//    echo $end."ConditionFetch!!!!".$begin;
+
+//    $client_fetch = "SELECT * FROM pm WHERE reg_date BETWEEN '$begin' AND '$end'";
+    // $client_fetch = "select * from pm where DATEDIFF(now(),reg_date) = 0";
+    $client_fetch = "SELECT * FROM pm WHERE YEARWEEK(date_format(reg_date,'%Y-%m-%d')) = YEARWEEK(now())-1";
+    $clientRes = mysqli_query($conn, $client_fetch);
+    $data =array();
+    while($row = mysqli_fetch_array($clientRes, MYSQL_ASSOC)){
+        array_push($data, $row);
+    };
+
+    echo json_encode($data);
+
+
+}else{
     echo "Unset PM flag!";
 };

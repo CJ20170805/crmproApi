@@ -14,6 +14,9 @@ if ($flag === 'add') {
     $shop_name = $_POST['shop_name'];
     $shop_url = $_POST['shop_url'];
     $shop_id = $_POST['shop_id'];
+    $shop_grade = $_POST['shop_grade'];
+    $shop_industry = $_POST['shop_industry'];
+    $shop_address = $_POST['shop_address'];
     $shop_type = $_POST['shop_type'];
     $link_man = $_POST['link_man'];
     $link_methods = $_POST['link_methods'];
@@ -26,20 +29,45 @@ if ($flag === 'add') {
     $desc_info = $_POST['desc_info'];
     $some_img = $_POST['some_img'];
     $sales_man = $_POST['sales_man'];
+    $sales_id = $_POST['sales_id'];
+    $sales_apart = $_POST['sales_apart'];
+    $buy_type = $_POST['buy_type'];
+    $rec_id = $_POST['rec_id'];
+    $price_id = $_POST['price_id'];
+    $write_man = $_POST['write_man'];
 
 //$arr = array();
     // echo $shop_name.$shop_url.$shop_id.$shop_type.$link_methods.$time_limit;
 
     $order_add = "INSERT INTO orders (shop_name, shop_url, shop_id, shop_type,
-link_man, link_methods, combo_info, pay_price, pay_id, pay_methods, pay_date, time_limit, desc_info, some_img, sales_man) VALUES ('$shop_name',
+link_man, link_methods, combo_info, pay_price, pay_id, pay_methods, pay_date, time_limit, desc_info, some_img, sales_man, buy_type, rec_id, price_id) VALUES ('$shop_name',
  '$shop_url', '$shop_id', '$shop_type', '$link_man', '$link_methods',
- '$combo_info', '$pay_price', '$pay_id', '$pay_methods', '$pay_date', '$time_limit', '$desc_info', '$some_img', '$sales_man')";
+ '$combo_info', '$pay_price', '$pay_id', '$pay_methods', '$pay_date', '$time_limit', '$desc_info', '$some_img', '$sales_man', '$buy_type', '$rec_id', '$price_id')";
 
     if (mysqli_query($conn, $order_add)) {
         echo "AddSUC";
     } else {
         echo "AddFAL".mysqli_error($conn);
     };
+
+    // pm _ ADD
+
+    $pm_add = "INSERT INTO pm (reach_id, reach_apart, reach_name, reach_date,
+client_name, buy_serv, serv_price, time_limit, pay_price, pay_id, rec_id, deal_id, else_desc, upload_imgs, buy_type, $buy_type) VALUES ('$sales_id',
+ '$sales_apart', '$sales_man', '$pay_date', '$link_man', '$combo_info',
+ '$pay_price', '$time_limit', '$pay_price', '$pay_id', '$rec_id', '$price_id', '$desc_info', '$some_img', '$buy_type', '$pay_price')";
+
+  mysqli_query($conn, $pm_add);
+
+   // client ADD
+
+    $client_add = "INSERT INTO client (client_name, client_address, client_link,
+sales_man, write_man, shop_name, shop_url, shop_id, shop_grade, shop_industry, shop_type, files, combo_type) VALUES ('$link_man',
+ '$shop_address', '$link_methods', '$sales_man', '$write_man', '$shop_name',
+ '$shop_url', '$shop_id', '$shop_grade', '$shop_industry', '$shop_type', '$some_img', '$combo_info')";
+
+    mysqli_query($conn, $client_add);
+
 } else if ($flag === 'fetch') {
 //    echo "Begin Query!";
     $order_fetch = "SELECT * FROM orders";

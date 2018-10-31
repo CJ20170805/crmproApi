@@ -19,6 +19,8 @@ include "./connect_db.php";
 //    st_power VARCHAR(30) NOT NULL,
 //    st_avatar VARCHAR(255),
 //    st_orders VARCHAR(255),
+//    best_flag INT(2),
+//    best_reason VARCHAR(255),
 //    reg_date TIMESTAMP
 //    )";
 //

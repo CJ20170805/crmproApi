@@ -2,7 +2,7 @@
 include "./connect_db.php";
 
 // // 使用 sql 创建数据表
-//    $sql = "CREATE TABLE staff (
+//    $sql1 = "CREATE TABLE staff (
 //    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 //    st_name VARCHAR(30) NOT NULL,
 //    st_sex VARCHAR(30) NOT NULL,
@@ -24,7 +24,7 @@ include "./connect_db.php";
 //    reg_date TIMESTAMP
 //    )";
 //
-//    if (mysqli_query($conn, $sql)) {
+//    if (mysqli_query($conn, $sql1)) {
 //        echo "staff数据表创建成功";
 //    } else {
 //        echo "create error staff".mysqli_error($conn);
@@ -46,37 +46,40 @@ include "./connect_db.php";
 //
 //// 使用 sql 创建数据表
 
-// $sql = "CREATE TABLE orders (
-//     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-//     shop_name VARCHAR(255) NOT NULL,
-//     shop_url VARCHAR(255) NOT NULL,
-//     shop_id VARCHAR(30) NOT NULL,
-//     shop_type VARCHAR(30) NOT NULL,
-//     link_man VARCHAR(30) NOT NULL,
-//     link_methods VARCHAR(255) NOT NULL,
-//     combo_info VARCHAR(255) NOT NULL,
-//     pay_price VARCHAR(30) NOT NULL,
-//     pay_id VARCHAR(30) NOT NULL,
-//     pay_methods VARCHAR(30) NOT NULL,
-//     pay_date VARCHAR(30) NOT NULL,
-//     time_limit VARCHAR(30) NOT NULL,
-//     desc_info VARCHAR(500) NOT NULL,
-//     some_img VARCHAR(1000),
-//     sales_man VARCHAR(255),
-//     reg_date TIMESTAMP
-//     )";
-//
-// if (mysqli_query($conn, $sql)) {
-//     echo "orders数据表创建成功";
-// } else {
-//     echo "create error staff".mysqli_error($conn);
-// };
-//
-// if (mysqli_query($conn, "ALTER TABLE orders AUTO_INCREMENT = 10000")) {
-//     echo "Orders Primary Changed!";
-// } else {
-//     echo "Primary change error".mysqli_error($conn);
-// };
+ $sql2 = "CREATE TABLE orders (
+     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+     shop_name VARCHAR(255) NOT NULL,
+     shop_url VARCHAR(255) NOT NULL,
+     shop_id VARCHAR(30) NOT NULL,
+     shop_type VARCHAR(30) NOT NULL,
+     link_man VARCHAR(30) NOT NULL,
+     link_methods VARCHAR(255) NOT NULL,
+     combo_info VARCHAR(255) NOT NULL,
+     pay_price VARCHAR(30) NOT NULL,
+     pay_id VARCHAR(30) NOT NULL,
+     pay_methods VARCHAR(30) NOT NULL,
+     pay_date VARCHAR(30) NOT NULL,
+     time_limit VARCHAR(30) NOT NULL,
+     desc_info VARCHAR(500) NOT NULL,
+     some_img VARCHAR(1000),
+     sales_man VARCHAR(255),
+     buy_type VARCHAR(30),
+     rec_id VARCHAR(30),
+     price_id VARCHAR(30),
+     reg_date TIMESTAMP
+     )";
+
+ if (mysqli_query($conn, $sql2)) {
+     echo "orders数据表创建成功";
+ } else {
+     echo "create error staff".mysqli_error($conn);
+ };
+
+ if (mysqli_query($conn, "ALTER TABLE orders AUTO_INCREMENT = 10000")) {
+     echo "Orders Primary Changed!";
+ } else {
+     echo "Primary change error".mysqli_error($conn);
+ };
 ////
 // // 使用 sql 创建数据表
 //   $sql = "CREATE TABLE acord (
@@ -96,37 +99,37 @@ include "./connect_db.php";
 //   };
 
  // 使用 sql 创建数据表
-   $sql = "CREATE TABLE client (
-   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-   client_name VARCHAR(30) NOT NULL,
-   client_address VARCHAR(255) NOT NULL,
-   client_link VARCHAR(30) NOT NULL,
-   sales_man VARCHAR(30) NOT NULL,
-   write_man VARCHAR(30) NOT NULL,
-   shop_name VARCHAR(30) NOT NULL,
-   shop_url VARCHAR(30) NOT NULL,
-   shop_id VARCHAR(30) NOT NULL,
-   shop_grade VARCHAR(30) NOT NULL,
-   shop_industry VARCHAR(30) NOT NULL,
-   shop_type VARCHAR(30) NOT NULL,
-   combo_type VARCHAR(30) NOT NULL,
-   files VARCHAR (1000),
-   reg_date TIMESTAMP
-   )";
-
-   if (mysqli_query($conn, $sql)) {
-       echo "client数据表创建成功";
-   } else {
-       echo "create error client".mysqli_error($conn);
-   };
-
- if (mysqli_query($conn, "ALTER TABLE client AUTO_INCREMENT = 1000")) {
-     echo "Client Primary Changed!";
- } else {
-     echo "Primary change error".mysqli_error($conn);
- };
+//   $sql3 = "CREATE TABLE client (
+//   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+//   client_name VARCHAR(30) NOT NULL,
+//   client_address VARCHAR(255) NOT NULL,
+//   client_link VARCHAR(30) NOT NULL,
+//   sales_man VARCHAR(30) NOT NULL,
+//   write_man VARCHAR(30) NOT NULL,
+//   shop_name VARCHAR(30) NOT NULL,
+//   shop_url VARCHAR(30) NOT NULL,
+//   shop_id VARCHAR(30) NOT NULL,
+//   shop_grade VARCHAR(30) NOT NULL,
+//   shop_industry VARCHAR(30) NOT NULL,
+//   shop_type VARCHAR(30) NOT NULL,
+//   combo_type VARCHAR(30) NOT NULL,
+//   files VARCHAR (1000),
+//   reg_date TIMESTAMP
+//   )";
 //
-//$sql = "CREATE TABLE pm (
+//   if (mysqli_query($conn, $sql3)) {
+//       echo "client数据表创建成功";
+//   } else {
+//       echo "create error client".mysqli_error($conn);
+//   };
+//
+// if (mysqli_query($conn, "ALTER TABLE client AUTO_INCREMENT = 20000")) {
+//     echo "Client Primary Changed!";
+// } else {
+//     echo "Primary change error".mysqli_error($conn);
+// };
+//
+//$sql4 = "CREATE TABLE pm (
 //   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 //   reach_id VARCHAR(30) NOT NULL,
 //   reach_apart VARCHAR(30) NOT NULL,
@@ -152,13 +155,13 @@ include "./connect_db.php";
 //   reg_date TIMESTAMP
 //   )";
 //
-//if (mysqli_query($conn, $sql)) {
+//if (mysqli_query($conn, $sql4)) {
 //    echo "PM数据表创建成功";
 //} else {
 //    echo "create error pm".mysqli_error($conn);
 //};
 //
-//if (mysqli_query($conn, "ALTER TABLE pm AUTO_INCREMENT = 2000")) {
+//if (mysqli_query($conn, "ALTER TABLE pm AUTO_INCREMENT = 30000")) {
 //    echo "pm Primary Changed!";
 //} else {
 //    echo "Primary change error".mysqli_error($conn);

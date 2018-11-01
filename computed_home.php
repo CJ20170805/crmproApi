@@ -69,4 +69,29 @@ if ($flag === 'myClient') {
     };
 
     echo json_encode($data);
+} elseif ($flag === 'setUserInfo') {
+
+    $set_name = $_POST['set_name'];
+    $set_info = $_POST['set_info'];
+//    echo $set_name.$set_info;
+
+    if ($set_name == 'undefined'){
+      echo "uf";
+      exit;
+    };
+
+    $set_0 = "UPDATE staff SET best_flag = 0 WHERE best_flag = 1";
+    mysqli_query($conn, $set_0);
+
+    $set_best = "UPDATE staff SET best_flag = 1, best_reason = '$set_info' WHERE st_name = '$set_name'";
+
+    if (mysqli_query($conn, $set_best)) {
+        echo "setSuc";
+    } else {
+        echo "setFail";
+    }
+//    $data =array();
+//    while($row = mysqli_fetch_array($res, MYSQL_ASSOC)){
+//        array_push($data, $row);
+//    };
 }

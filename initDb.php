@@ -21,6 +21,7 @@ include "./connect_db.php";
 //    st_orders VARCHAR(255),
 //    best_flag INT(2),
 //    best_reason VARCHAR(255),
+//    audit_content VARCHAR(255),
 //    reg_date TIMESTAMP
 //    )";
 //

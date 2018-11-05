@@ -59,6 +59,49 @@ if (mysqli_query($conn, $insert_db)){
 	} else {
 	  echo "Error".mysqli_error($conn);
 	}
+} else if($st_flag === 'audit') {
+
+    $order_id = $_POST['order_id'];
+    $staff_id = $_POST['staff_id'];
+
+
+    $rd = "SELECT audit_content FROM staff WHERE id = '$staff_id'";
+    $res = mysqli_query($conn, $rd);
+
+    $row = mysqli_fetch_array($res, MYSQL_ASSOC);
+
+    $newVal = "";
+
+    if ($row['audit_content'] !== "") {
+        $newVal = $row['audit_content'].";".$order_id;
+    } else {
+        $newVal = $order_id;
+    }
+
+//    echo $newVal;
+
+    $it = "UPDATE staff SET audit_content = '$newVal' WHERE id = '$staff_id'";
+    if (mysqli_query($conn, $it)) {
+        echo $order_id;
+    } else {
+        echo "Err".mysqli_error($conn);
+    };
+
+
+} else if ($st_flag === 'auditFetch') {
+
+    $staff_id = $_POST['staff_id'];
+
+//    echo $staff_id;
+
+    $rd = "SELECT audit_content FROM staff WHERE id = '$staff_id'";
+
+    $res = mysqli_query($conn, $rd);
+
+    $row = mysqli_fetch_array($res, MYSQL_ASSOC);
+
+    echo $row['audit_content'];
+
 } else {
-	echo 'No sql command!!!';
-}
+    echo 'No sql command!!!';
+};

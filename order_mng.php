@@ -40,9 +40,9 @@ if ($flag === 'add') {
     // echo $shop_name.$shop_url.$shop_id.$shop_type.$link_methods.$time_limit;
 
     $order_add = "INSERT INTO orders (shop_name, shop_url, shop_id, shop_type,
-link_man, link_methods, combo_info, pay_price, pay_id, pay_methods, pay_date, time_limit, desc_info, some_img, sales_man, buy_type, rec_id, price_id) VALUES ('$shop_name',
+link_man, link_methods, combo_info, pay_price, pay_id, pay_methods, pay_date, time_limit, desc_info, some_img, sales_man, buy_type, rec_id, price_id, sales_id, sales_apart) VALUES ('$shop_name',
  '$shop_url', '$shop_id', '$shop_type', '$link_man', '$link_methods',
- '$combo_info', '$pay_price', '$pay_id', '$pay_methods', '$pay_date', '$time_limit', '$desc_info', '$some_img', '$sales_man', '$buy_type', '$rec_id', '$price_id')";
+ '$combo_info', '$pay_price', '$pay_id', '$pay_methods', '$pay_date', '$time_limit', '$desc_info', '$some_img', '$sales_man', '$buy_type', '$rec_id', '$price_id', '$sales_id', '$sales_apart')";
 
     if (mysqli_query($conn, $order_add)) {
         echo "AddSUC";
@@ -162,6 +162,46 @@ sales_man, write_man, shop_name, shop_url, shop_id, shop_grade, shop_industry, s
     } else {
       echo "Del false".mysqli_error($conn);
     };
+} else if ($flag === 'auditOrderFetch') {
+
+    $order_id = $_POST['order_id'];
+    $order_arr = explode(';', $order_id);
+    $ordersDetailArr = array();
+    foreach ($order_arr as $key => $value) {
+        // echo "aaa".$value;
+        //
+        // 循环获取 对象 放置外部数组内 ， 并返回外部数组的json
+        //
+        $order_fetch = "SELECT * FROM orders WHERE id = '$value'";
+        $orderRes = mysqli_query($conn, $order_fetch);
+
+        while($orderRow = mysqli_fetch_array($orderRes, MYSQL_ASSOC)){
+            array_push($ordersDetailArr, $orderRow);
+        };
+
+        // array_push($ordersDetailArr, $data);
+
+    };
+
+    $orderJson = json_encode($ordersDetailArr);
+
+    echo $orderJson;
+
+} else if ($flag === 'changeStu') {
+
+    $order_id = $_POST['order_id'];
+    $where_audit = $_POST['where_audit'];
+    $audit_code = $_POST['audit_code'];
+
+    $sql = "UPDATE orders SET $where_audit = '$audit_code' WHERE id = '$order_id'";
+
+    if(mysqli_query($conn, $sql)){
+
+        echo "auditChangeSuc";
+    } else {
+        echo "auditChange fail".mysqli_error($conn);
+    };
+
 } else {
     echo "Order Error(No set flag?)";
 };

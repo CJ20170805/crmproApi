@@ -62,31 +62,34 @@ if (mysqli_query($conn, $insert_db)){
 } else if($st_flag === 'audit') {
 
     $order_id = $_POST['order_id'];
-    $staff_id = $_POST['staff_id'];
+    $staff_depart = $_POST['staff_depart'];
 
+    $rd = "SELECT audit_content FROM staff WHERE st_departmentVal = '$staff_depart' AND st_jobVal = 'BD经理'";
 
-    $rd = "SELECT audit_content FROM staff WHERE id = '$staff_id'";
     $res = mysqli_query($conn, $rd);
 
     $row = mysqli_fetch_array($res, MYSQL_ASSOC);
 
-    $newVal = "";
+     $newVal = "";
 
-    if ($row['audit_content'] !== "") {
+    if (!empty($row)) {
+
         $newVal = $row['audit_content'].";".$order_id;
+//        echo $newVal;
+
     } else {
         $newVal = $order_id;
     }
 
-//    echo $newVal;
+    // echo $newVal;
 
-    $it = "UPDATE staff SET audit_content = '$newVal' WHERE id = '$staff_id'";
+    $it = "UPDATE staff SET audit_content = '$newVal' WHERE st_departmentVal = '$staff_depart' AND st_jobVal = 'BD经理'";
+
     if (mysqli_query($conn, $it)) {
-        echo $order_id;
+        echo "notiSuc";
     } else {
         echo "Err".mysqli_error($conn);
     };
-
 
 } else if ($st_flag === 'auditFetch') {
 

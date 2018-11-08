@@ -69,6 +69,8 @@ include "./connect_db.php";
      price_id VARCHAR(30),
      jl_audit VARCHAR(2) NOT NULL DEFAULT '1',
      zjl_audit VARCHAR(2) NOT NULL DEFAULT '1',
+     order_status VARCHAR(30) NOT NULL DEFAULT '发起审核',
+     order_code VARCHAR(2) NOT NULL DEFAULT '0',
      reg_date TIMESTAMP
      )";
 

@@ -202,6 +202,24 @@ sales_man, write_man, shop_name, shop_url, shop_id, shop_grade, shop_industry, s
         echo "auditChange fail".mysqli_error($conn);
     };
 
+} else if ($flag === 'changeBtnText') {
+   // echo "changeText";
+   $order_id = $_POST['order_id'];
+   $btn_text = $_POST['btn_text'];
+   $sql = "UPDATE orders SET order_status = '$btn_text' WHERE id = '$order_id'";
+
+    if(mysqli_query($conn, $sql)){
+        echo "auditBtnChangeSuc";
+    } else {
+        echo "auditChange fail".mysqli_error($conn);
+    };
+
+    $sql2 = "UPDATE orders SET order_code = '1' WHERE id = '$order_id'";
+    if(mysqli_query($conn, $sql2)){
+        echo "auditBtnChangeSuc2";
+    } else {
+        echo "auditChange fail2".mysqli_error($conn);
+    };
 } else {
     echo "Order Error(No set flag?)";
 };

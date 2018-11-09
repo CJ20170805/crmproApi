@@ -70,16 +70,47 @@ sales_man, write_man, shop_name, shop_url, shop_id, shop_grade, shop_industry, s
 
 } else if ($flag === 'fetch') {
 //    echo "Begin Query!";
-    $order_fetch = "SELECT * FROM orders";
-    $orderRes = mysqli_query($conn, $order_fetch);
-    $data =array();
-    while($orderRow = mysqli_fetch_array($orderRes, MYSQL_ASSOC)){
-        array_push($data, $orderRow);
-    };
+    $name = $_POST['name'];
+    $depart = $_POST['depart'];
+    $power = $_POST['power'];
 
-    $orderJson = json_encode($data);
+    if ($power === "分公司总经理" || $power === "") {
 
-    echo $orderJson;
+        $order_fetch = "SELECT * FROM orders";
+        $orderRes = mysqli_query($conn, $order_fetch);
+        $data =array();
+        while($orderRow = mysqli_fetch_array($orderRes, MYSQL_ASSOC)){
+            array_push($data, $orderRow);
+        };
+
+        $orderJson = json_encode($data);
+
+        echo $orderJson;
+
+    } elseif ($power === "BD经理" || $power === "AM") {
+
+        $order_fetch = "SELECT * FROM orders WHERE sales_apart = '$depart'";
+        $orderRes = mysqli_query($conn, $order_fetch);
+        $data =array();
+        while($orderRow = mysqli_fetch_array($orderRes, MYSQL_ASSOC)){
+            array_push($data, $orderRow);
+        };
+
+        $orderJson = json_encode($data);
+        echo $orderJson;
+    } else {
+
+        $order_fetch = "SELECT * FROM orders WHERE sales_man = '$name'";
+        $orderRes = mysqli_query($conn, $order_fetch);
+        $data =array();
+        while($orderRow = mysqli_fetch_array($orderRes, MYSQL_ASSOC)){
+            array_push($data, $orderRow);
+        };
+
+        $orderJson = json_encode($data);
+        echo $orderJson;
+    }
+
 
 } else if ($flag === 'dispense') {
     
@@ -192,14 +223,68 @@ sales_man, write_man, shop_name, shop_url, shop_id, shop_grade, shop_industry, s
     $order_id = $_POST['order_id'];
     $where_audit = $_POST['where_audit'];
     $audit_code = $_POST['audit_code'];
+    $staff_id = $_POST['staff_id'];
 
-    $sql = "UPDATE orders SET $where_audit = '$audit_code' WHERE id = '$order_id'";
+//    $sql = "UPDATE orders SET $where_audit = '$audit_code' WHERE id = '$order_id'";
+//
+//    if(mysqli_query($conn, $sql)){
+//
+//        echo "auditChangeSuc";
+//    } else {
+//        echo "auditChange fail".mysqli_error($conn);
+//    };
 
-    if(mysqli_query($conn, $sql)){
+    if ($audit_code === '2') {
 
-        echo "auditChangeSuc";
-    } else {
-        echo "auditChange fail".mysqli_error($conn);
+        //fetch had no audit orders
+        $rd = "SELECT audit_content FROM staff WHERE id = '$staff_id'";
+        $res = mysqli_query($conn, $rd);
+        $row = mysqli_fetch_array($res, MYSQL_ASSOC);
+
+          $noAudit = $row['audit_content'];
+
+        // fetch alAudit orders
+        $rd2 = "SELECT audit_content2 FROM staff WHERE id = '$staff_id'";
+        $res2 = mysqli_query($conn, $rd2);
+        $row2 = mysqli_fetch_array($res2, MYSQL_ASSOC);
+
+          $alAudit = $row2['audit_content2'];
+
+          if ($alAudit !== ""){
+              $alAudit .= ";".$order_id;
+          } else {
+              $alAudit = $order_id.";";
+          }
+
+        // write in alAudit's place
+
+            $sql = "UPDATE staff SET audit_content2 = '$alAudit' WHERE id = '$staff_id'";
+
+            if(mysqli_query($conn, $sql)){
+               echo "auditChangeSuc";
+            } else {
+                echo "auditChange fail".mysqli_error($conn);
+            };
+
+        // change init value
+//        $begin = strpos($noAudit, $order_id);
+//          $stRes =substr($noAudit, $begin, 3);
+          $strs = explode(';', $noAudit);
+          $strs_new = "";
+          foreach ($strs as $key => $value) {
+//              echo $value;
+              if (strpos($value, $order_id) === false) {
+//                  array_push($str_arr, $value);
+                  $strs_new .= $value.";";
+              }
+          }
+        //  echo "strsNew".$strs_new;
+        $sql2 = "UPDATE staff SET audit_content = '$strs_new' WHERE id = '$staff_id'";
+
+        mysqli_query($conn, $sql2);
+
+//          print_r($str_arr);
+//        echo $noAudit."!!!".$alAudit."!!!";
     };
 
 } else if ($flag === 'changeBtnText') {

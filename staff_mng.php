@@ -16,10 +16,11 @@ if ($st_flag === 'add') {
  $st_departmentVal = $_POST['st_departmentVal'];
  $st_jobVal = $_POST['st_jobVal'];
  $st_elseInfo = $_POST['st_elseInfo'];
+ $files = $_POST['files'];
 
 //  插入数据
-$insert_db = "INSERT INTO staff (st_name, st_sex, st_joinDate, st_cardNum, st_address, st_nowAddress, st_staffPhone, st_staffPhone2, st_departmentVal, st_jobVal, st_elseInfo, st_power) VALUES (
-'$st_name', '$st_sex', '$st_joinDate', '$st_cardNum', '$st_address', '$st_nowAddress', '$st_staffPhone', '$st_staffPhone2', '$st_departmentVal', '$st_jobVal', '$st_elseInfo', '$st_jobVal')";
+$insert_db = "INSERT INTO staff (st_name, st_sex, st_joinDate, st_cardNum, st_address, st_nowAddress, st_staffPhone, st_staffPhone2, st_departmentVal, st_jobVal, st_elseInfo, st_power, files) VALUES (
+'$st_name', '$st_sex', '$st_joinDate', '$st_cardNum', '$st_address', '$st_nowAddress', '$st_staffPhone', '$st_staffPhone2', '$st_departmentVal', '$st_jobVal', '$st_elseInfo', '$st_jobVal', '$files')";
 
 if (mysqli_query($conn, $insert_db)){
   echo "AddSuccess";
@@ -96,6 +97,7 @@ if (mysqli_query($conn, $insert_db)){
 } else if ($st_flag === 'auditFetch') {
 
     $staff_id = $_POST['staff_id'];
+//    $col_name = $_POST['col_name'];
 
 //    echo $staff_id;
 
@@ -106,6 +108,21 @@ if (mysqli_query($conn, $insert_db)){
     $row = mysqli_fetch_array($res, MYSQL_ASSOC);
 
     echo $row['audit_content'];
+
+} else if ($st_flag === 'auditFetch2') {
+
+    $staff_id = $_POST['staff_id'];
+//    $col_name = $_POST['col_name'];
+
+//    echo $staff_id;
+
+    $rd = "SELECT audit_content2 FROM staff WHERE id = '$staff_id'";
+
+    $res = mysqli_query($conn, $rd);
+
+    $row = mysqli_fetch_array($res, MYSQL_ASSOC);
+
+    echo $row['audit_content2'];
 
 } else {
     echo 'No sql command!!!';

@@ -74,7 +74,7 @@ sales_man, write_man, shop_name, shop_url, shop_id, shop_grade, shop_industry, s
     $depart = $_POST['depart'];
     $power = $_POST['power'];
 
-    if ($power === "分公司总经理" || $power === "") {
+    if ($power === "分公司总经理" || $power === "" || $power === "技术总监" || $power === "销售总监") {
 
         $order_fetch = "SELECT * FROM orders";
         $orderRes = mysqli_query($conn, $order_fetch);
@@ -225,16 +225,16 @@ sales_man, write_man, shop_name, shop_url, shop_id, shop_grade, shop_industry, s
     $audit_code = $_POST['audit_code'];
     $staff_id = $_POST['staff_id'];
 
-//    $sql = "UPDATE orders SET $where_audit = '$audit_code' WHERE id = '$order_id'";
-//
-//    if(mysqli_query($conn, $sql)){
-//
-//        echo "auditChangeSuc";
-//    } else {
-//        echo "auditChange fail".mysqli_error($conn);
-//    };
+    $sql = "UPDATE orders SET $where_audit = '$audit_code' WHERE id = '$order_id'";
 
-    if ($audit_code === '2') {
+    if(mysqli_query($conn, $sql)){
+
+        echo "auditChangeSuc";
+    } else {
+        echo "auditChange fail".mysqli_error($conn);
+    };
+
+    if ($audit_code === '2' || $audit_code === '3') {
 
         //fetch had no audit orders
         $rd = "SELECT audit_content FROM staff WHERE id = '$staff_id'";
@@ -260,11 +260,7 @@ sales_man, write_man, shop_name, shop_url, shop_id, shop_grade, shop_industry, s
 
             $sql = "UPDATE staff SET audit_content2 = '$alAudit' WHERE id = '$staff_id'";
 
-            if(mysqli_query($conn, $sql)){
-               echo "auditChangeSuc";
-            } else {
-                echo "auditChange fail".mysqli_error($conn);
-            };
+            mysqli_query($conn, $sql);
 
         // change init value
 //        $begin = strpos($noAudit, $order_id);

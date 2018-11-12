@@ -62,9 +62,9 @@ if (mysqli_query($conn, $insert_db)){
 	}
 } else if($st_flag === 'audit') {
 
-    $order_id = $_POST['order_id'];
-    $staff_depart = $_POST['staff_depart'];
-    $staff_job = $_POST['staff_job'];
+    $order_id = $_POST['order_id'];         // order ID
+    $staff_depart = $_POST['staff_depart']; // depart
+    $staff_job = $_POST['staff_job'];       // job
 
     $rd = "SELECT audit_content FROM staff WHERE st_departmentVal = '$staff_depart' AND st_jobVal = '$staff_job'";
 
@@ -75,14 +75,14 @@ if (mysqli_query($conn, $insert_db)){
      $newVal = "";
 //   print_r($row);
 
-    if ($row['audit_content'] !== "") {
+        if ($row['audit_content'] !== null) {
 
-        $newVal = $row['audit_content'].";".$order_id;
-//        echo $newVal;
+            $newVal = $row['audit_content'].";".$order_id;
+    //        echo $newVal;
 
-    } else {
-        $newVal = $order_id;
-    }
+        } else {
+            $newVal = $order_id;
+        }
 //
    // echo $newVal;
 //

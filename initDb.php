@@ -69,6 +69,8 @@ include "./connect_db.php";
      buy_type VARCHAR(30),
      rec_id VARCHAR(30),
      price_id VARCHAR(30),
+     sales_id VARCHAR(30),
+     sales_apart VARCHAR(30),
      jl_audit VARCHAR(2) NOT NULL DEFAULT '1',
      zjl_audit VARCHAR(2) NOT NULL DEFAULT '1',
      order_status VARCHAR(30) NOT NULL DEFAULT '发起审核',

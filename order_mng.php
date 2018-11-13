@@ -50,16 +50,17 @@ link_man, link_methods, combo_info, pay_price, pay_id, pay_methods, pay_date, ti
         echo "AddFAL".mysqli_error($conn);
     };
 
-    // pm _ ADD
 
+//    // pm _ ADD
+//
     $pm_add = "INSERT INTO pm (reach_id, reach_apart, reach_name, reach_date,
 client_name, buy_serv, serv_price, time_limit, pay_price, pay_id, rec_id, deal_id, else_desc, upload_imgs, buy_type, $buy_type) VALUES ('$sales_id',
  '$sales_apart', '$sales_man', '$pay_date', '$link_man', '$combo_info',
  '$pay_price', '$time_limit', '$pay_price', '$pay_id', '$rec_id', '$price_id', '$desc_info', '$some_img', '$buy_type', '$pay_price')";
 
   mysqli_query($conn, $pm_add);
-
-   // client ADD
+//
+//   // client ADD
 
     $client_add = "INSERT INTO client (client_name, client_address, client_link,
 sales_man, write_man, shop_name, shop_url, shop_id, shop_grade, shop_industry, shop_type, files, combo_type) VALUES ('$link_man',
@@ -225,14 +226,24 @@ sales_man, write_man, shop_name, shop_url, shop_id, shop_grade, shop_industry, s
     $audit_code = $_POST['audit_code'];
     $staff_id = $_POST['staff_id'];
 
+    $sales_man = $_POST['sales_man'];
+    $pay_price = $_POST['pay_price'];
+    $link_man = $_POST['link_man'];
+
+
+
     $sql = "UPDATE orders SET $where_audit = '$audit_code' WHERE id = '$order_id'";
 
     if(mysqli_query($conn, $sql)){
-
         echo "auditChangeSuc";
     } else {
         echo "auditChange fail".mysqli_error($conn);
     };
+
+    // audit the PM
+    $sql66 = "UPDATE pm SET stu = '1' WHERE reach_name = '$sales_man' AND pay_price = '$pay_price' AND client_name = '$link_man'";
+
+    mysqli_query($conn, $sql66);
 
     if ($audit_code === '2' || $audit_code === '3') {
 
@@ -250,11 +261,7 @@ sales_man, write_man, shop_name, shop_url, shop_id, shop_grade, shop_industry, s
 
           $alAudit = $row2['audit_content2'];
 
-          if ($alAudit !== ""){
-              $alAudit .= ";".$order_id;
-          } else {
-              $alAudit = $order_id.";";
-          }
+          $alAudit .= $order_id.";";
 
         // write in alAudit's place
 
@@ -262,16 +269,22 @@ sales_man, write_man, shop_name, shop_url, shop_id, shop_grade, shop_industry, s
 
             mysqli_query($conn, $sql);
 
+            //   10;20;30   =>  0
+            //   10;        =>  0;20;30;
+
         // change init value
 //        $begin = strpos($noAudit, $order_id);
 //          $stRes =substr($noAudit, $begin, 3);
           $strs = explode(';', $noAudit);
           $strs_new = "";
+
           foreach ($strs as $key => $value) {
 //              echo $value;
-              if (strpos($value, $order_id) === false) {
+              if ($value !== ""){
+                  if (strpos($value, $order_id) === false) {
 //                  array_push($str_arr, $value);
-                  $strs_new .= $value.";";
+                      $strs_new .= $value.";";
+                  }
               }
           }
         //  echo "strsNew".$strs_new;
@@ -295,12 +308,24 @@ sales_man, write_man, shop_name, shop_url, shop_id, shop_grade, shop_industry, s
         echo "auditChange fail".mysqli_error($conn);
     };
 
-    $sql2 = "UPDATE orders SET order_code = '1' WHERE id = '$order_id'";
-    if(mysqli_query($conn, $sql2)){
-        echo "auditBtnChangeSuc2";
+    if ($btn_text === '已通过审核') {
+
+        $sql3 = "UPDATE orders SET order_code = '2' WHERE id = '$order_id'";
+        if(mysqli_query($conn, $sql3)){
+            echo "auditBtnChangeSuc3";
+        } else {
+            echo "auditChange fail3".mysqli_error($conn);
+        };
+
     } else {
-        echo "auditChange fail2".mysqli_error($conn);
-    };
+
+        $sql2 = "UPDATE orders SET order_code = '1' WHERE id = '$order_id'";
+        if(mysqli_query($conn, $sql2)){
+            echo "auditBtnChangeSuc2";
+        } else {
+            echo "auditChange fail2".mysqli_error($conn);
+        };
+    }
 } else {
     echo "Order Error(No set flag?)";
 };

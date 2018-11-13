@@ -49,46 +49,46 @@ include "./connect_db.php";
 //
 //// 使用 sql 创建数据表
 
- $sql2 = "CREATE TABLE orders (
-     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-     shop_name VARCHAR(255) NOT NULL,
-     shop_url VARCHAR(255) NOT NULL,
-     shop_id VARCHAR(30) NOT NULL,
-     shop_type VARCHAR(30) NOT NULL,
-     link_man VARCHAR(30) NOT NULL,
-     link_methods VARCHAR(255) NOT NULL,
-     combo_info VARCHAR(255) NOT NULL,
-     pay_price VARCHAR(30) NOT NULL,
-     pay_id VARCHAR(30) NOT NULL,
-     pay_methods VARCHAR(30) NOT NULL,
-     pay_date VARCHAR(30) NOT NULL,
-     time_limit VARCHAR(30) NOT NULL,
-     desc_info VARCHAR(500) NOT NULL,
-     some_img VARCHAR(1000),
-     sales_man VARCHAR(255),
-     buy_type VARCHAR(30),
-     rec_id VARCHAR(30),
-     price_id VARCHAR(30),
-     sales_id VARCHAR(30),
-     sales_apart VARCHAR(30),
-     jl_audit VARCHAR(2) NOT NULL DEFAULT '1',
-     zjl_audit VARCHAR(2) NOT NULL DEFAULT '1',
-     order_status VARCHAR(30) NOT NULL DEFAULT '发起审核',
-     order_code VARCHAR(2) NOT NULL DEFAULT '0',
-     reg_date TIMESTAMP
-     )";
-
- if (mysqli_query($conn, $sql2)) {
-     echo "orders数据表创建成功";
- } else {
-     echo "create error staff".mysqli_error($conn);
- };
-
- if (mysqli_query($conn, "ALTER TABLE orders AUTO_INCREMENT = 10000")) {
-     echo "Orders Primary Changed!";
- } else {
-     echo "Primary change error".mysqli_error($conn);
- };
+// $sql2 = "CREATE TABLE orders (
+//     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+//     shop_name VARCHAR(255) NOT NULL,
+//     shop_url VARCHAR(255) NOT NULL,
+//     shop_id VARCHAR(30) NOT NULL,
+//     shop_type VARCHAR(30) NOT NULL,
+//     link_man VARCHAR(30) NOT NULL,
+//     link_methods VARCHAR(255) NOT NULL,
+//     combo_info VARCHAR(255) NOT NULL,
+//     pay_price VARCHAR(30) NOT NULL,
+//     pay_id VARCHAR(30) NOT NULL,
+//     pay_methods VARCHAR(30) NOT NULL,
+//     pay_date VARCHAR(30) NOT NULL,
+//     time_limit VARCHAR(30) NOT NULL,
+//     desc_info VARCHAR(500) NOT NULL,
+//     some_img VARCHAR(1000),
+//     sales_man VARCHAR(255),
+//     buy_type VARCHAR(30),
+//     rec_id VARCHAR(30),
+//     price_id VARCHAR(30),
+//     sales_id VARCHAR(30),
+//     sales_apart VARCHAR(30),
+//     jl_audit VARCHAR(2) NOT NULL DEFAULT '1',
+//     zjl_audit VARCHAR(2) NOT NULL DEFAULT '1',
+//     order_status VARCHAR(30) NOT NULL DEFAULT '发起审核',
+//     order_code VARCHAR(2) NOT NULL DEFAULT '0',
+//     reg_date TIMESTAMP
+//     )";
+//
+// if (mysqli_query($conn, $sql2)) {
+//     echo "orders数据表创建成功";
+// } else {
+//     echo "create error staff".mysqli_error($conn);
+// };
+//
+// if (mysqli_query($conn, "ALTER TABLE orders AUTO_INCREMENT = 10000")) {
+//     echo "Orders Primary Changed!";
+// } else {
+//     echo "Primary change error".mysqli_error($conn);
+// };
 ////
 // // 使用 sql 创建数据表
 //   $sql = "CREATE TABLE acord (
@@ -122,6 +122,7 @@ include "./connect_db.php";
 //   shop_industry VARCHAR(30) NOT NULL,
 //   shop_type VARCHAR(30) NOT NULL,
 //   combo_type VARCHAR(30) NOT NULL,
+//   sales_apart VARCHAR(30),
 //   files VARCHAR (1000),
 //   reg_date TIMESTAMP
 //   )";
@@ -161,6 +162,7 @@ include "./connect_db.php";
 //   zhuangxiu VARCHAR(30) NOT NULL,
 //   yongjin VARCHAR(30) NOT NULL,
 //   qita VARCHAR(30) NOT NULL,
+//   stu VARCHAR(2) NOT NULL DEFAULT '0',
 //   reg_date TIMESTAMP
 //   )";
 //

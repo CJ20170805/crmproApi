@@ -74,15 +74,7 @@ if (mysqli_query($conn, $insert_db)){
 
      $newVal = "";
 //   print_r($row);
-
-        if ($row['audit_content'] !== null) {
-
-            $newVal = $row['audit_content'].";".$order_id;
-    //        echo $newVal;
-
-        } else {
-            $newVal = $order_id;
-        }
+            $newVal = $row['audit_content'].$order_id.";";
 //
    // echo $newVal;
 //

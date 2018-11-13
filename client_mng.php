@@ -37,14 +37,54 @@ client_intent, sales_man, link_date, link_channel, desc_info, write_man, files) 
 
 } elseif ($flag === 'fetch') {
 
-    $client_fetch = "SELECT * FROM client";
-    $clientRes = mysqli_query($conn, $client_fetch);
-    $data =array();
-    while($row = mysqli_fetch_array($clientRes, MYSQL_ASSOC)){
-        array_push($data, $row);
-    };
+//    $client_fetch = "SELECT * FROM client";
+//    $clientRes = mysqli_query($conn, $client_fetch);
+//    $data =array();
+//    while($row = mysqli_fetch_array($clientRes, MYSQL_ASSOC)){
+//        array_push($data, $row);
+//    };
+//    echo json_encode($data);
 
-    echo json_encode($data);;
+    $name = $_POST['name'];
+    $depart = $_POST['depart'];
+    $power = $_POST['power'];
+
+    if ($power === "分公司总经理" || $power === "" || $power === "技术总监" || $power === "销售总监") {
+
+        $order_fetch = "SELECT * FROM client";
+        $orderRes = mysqli_query($conn, $order_fetch);
+        $data =array();
+        while($orderRow = mysqli_fetch_array($orderRes, MYSQL_ASSOC)){
+            array_push($data, $orderRow);
+        };
+
+        $orderJson = json_encode($data);
+
+        echo $orderJson;
+
+    } elseif ($power === "BD经理" || $power === "AM") {
+
+        $order_fetch = "SELECT * FROM client WHERE sales_apart = '$depart'";
+        $orderRes = mysqli_query($conn, $order_fetch);
+        $data =array();
+        while($orderRow = mysqli_fetch_array($orderRes, MYSQL_ASSOC)){
+            array_push($data, $orderRow);
+        };
+        $orderJson = json_encode($data);
+        echo $orderJson;
+
+    } else {
+
+        $order_fetch = "SELECT * FROM client WHERE sales_man = '$name'";
+        $orderRes = mysqli_query($conn, $order_fetch);
+        $data =array();
+        while($orderRow = mysqli_fetch_array($orderRes, MYSQL_ASSOC)){
+            array_push($data, $orderRow);
+        };
+
+        $orderJson = json_encode($data);
+        echo $orderJson;
+    }
 } elseif ($flag === 'delClient'){
 
     $delId = $_POST['delId'];

@@ -17,10 +17,16 @@ if ($st_flag === 'add') {
  $st_jobVal = $_POST['st_jobVal'];
  $st_elseInfo = $_POST['st_elseInfo'];
  $files = $_POST['files'];
+ $whether_regular = $_POST['whether_regular'];
+ $regular_date = $_POST['regular_date'];
+ $nation = $_POST['nation'];
+    $edu_back = $_POST['edu_back'];
+    $school_name = $_POST['school_name'];
+    $major = $_POST['major'];
 
 //  插入数据
-$insert_db = "INSERT INTO staff (st_name, st_sex, st_joinDate, st_cardNum, st_address, st_nowAddress, st_staffPhone, st_staffPhone2, st_departmentVal, st_jobVal, st_elseInfo, st_power, files) VALUES (
-'$st_name', '$st_sex', '$st_joinDate', '$st_cardNum', '$st_address', '$st_nowAddress', '$st_staffPhone', '$st_staffPhone2', '$st_departmentVal', '$st_jobVal', '$st_elseInfo', '$st_jobVal', '$files')";
+$insert_db = "INSERT INTO staff (st_name, st_sex, st_joinDate, st_cardNum, st_address, st_nowAddress, st_staffPhone, st_staffPhone2, st_departmentVal, st_jobVal, st_elseInfo, st_power, files, whether_regular, regular_date, nation, edu_back, school_name, major) VALUES (
+'$st_name', '$st_sex', '$st_joinDate', '$st_cardNum', '$st_address', '$st_nowAddress', '$st_staffPhone', '$st_staffPhone2', '$st_departmentVal', '$st_jobVal', '$st_elseInfo', '$st_jobVal', '$files' , '$whether_regular', '$regular_date', '$nation', '$edu_back', '$school_name', '$major')";
 
 if (mysqli_query($conn, $insert_db)){
   echo "AddSuccess";
@@ -54,7 +60,19 @@ if (mysqli_query($conn, $insert_db)){
 	 $st_jobVal = $_POST['st_jobVal'];
 	 $st_elseInfo = $_POST['st_elseInfo'];
 
-	$ud = "UPDATE staff SET st_name = '$st_name', st_sex = '$st_sex', st_joinDate = '$st_joinDate', st_cardNum = '$st_cardNum', st_address = '$st_address', st_nowAddress = '$st_nowAddress', st_staffPhone = '$st_staffPhone', st_staffPhone2 = '$st_staffPhone2', st_departmentVal = '$st_departmentVal', st_jobVal = '$st_jobVal', st_elseInfo = '$st_elseInfo' WHERE id = '$st_id'";
+    $whether_regular = $_POST['whether_regular'];
+    $regular_date = $_POST['regular_date'];
+    $nation = $_POST['nation'];
+    $edu_back = $_POST['edu_back'];
+    $school_name = $_POST['school_name'];
+    $major = $_POST['major'];
+
+	$ud = "UPDATE staff SET st_name = '$st_name', st_sex = '$st_sex',
+ st_joinDate = '$st_joinDate', st_cardNum = '$st_cardNum', st_address = '$st_address',
+  st_nowAddress = '$st_nowAddress', st_staffPhone = '$st_staffPhone', 
+  st_staffPhone2 = '$st_staffPhone2', st_departmentVal = '$st_departmentVal',
+   st_jobVal = '$st_jobVal',
+    st_elseInfo = '$st_elseInfo', whether_regular = '$whether_regular', regular_date = '$regular_date', nation = '$nation', edu_back = '$edu_back', school_name = '$school_name', major = '$major' WHERE id = '$st_id'";
 	if (mysqli_query($conn, $ud)){
        echo "Set Successs!!!!!";     
 	} else {

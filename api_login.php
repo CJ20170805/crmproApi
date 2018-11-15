@@ -22,7 +22,7 @@ $row2 = mysqli_fetch_array($login_result2);
 //  exit();
 // }
 
-if($row > 0 || $row2 > 0){
+if(count($row) > 0 || count($row2) > 0){
   $query_res = '10000';
 } else {
   $query_res = '10001';

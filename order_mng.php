@@ -36,13 +36,21 @@ if ($flag === 'add') {
     $price_id = $_POST['price_id'];
     $write_man = $_POST['write_man'];
 
+    $reach_type = $_POST['reach_type'];
+    $reach_price = $_POST['reach_price'];
+    $pay_cost = $_POST['pay_cost'];
+    $reach_methods = $_POST['reach_methods'];
+    $job_type = $_POST['job_type'];
+
+
+
 //$arr = array();
     // echo $shop_name.$shop_url.$shop_id.$shop_type.$link_methods.$time_limit;
 
     $order_add = "INSERT INTO orders (shop_name, shop_url, shop_id, shop_type,
-link_man, link_methods, combo_info, pay_price, pay_id, pay_methods, pay_date, time_limit, desc_info, some_img, sales_man, buy_type, rec_id, price_id, sales_id, sales_apart) VALUES ('$shop_name',
+link_man, link_methods, combo_info, pay_price, pay_id, pay_methods, pay_date, time_limit, desc_info, some_img, sales_man, buy_type, rec_id, price_id, sales_id, sales_apart, reach_type, pay_cost, reach_methods, job_type, reach_price) VALUES ('$shop_name',
  '$shop_url', '$shop_id', '$shop_type', '$link_man', '$link_methods',
- '$combo_info', '$pay_price', '$pay_id', '$pay_methods', '$pay_date', '$time_limit', '$desc_info', '$some_img', '$sales_man', '$buy_type', '$rec_id', '$price_id', '$sales_id', '$sales_apart')";
+ '$combo_info', '$pay_price', '$pay_id', '$pay_methods', '$pay_date', '$time_limit', '$desc_info', '$some_img', '$sales_man', '$buy_type', '$rec_id', '$price_id', '$sales_id', '$sales_apart', '$reach_type', '$pay_cost', '$reach_methods', '$job_type', '$reach_price')";
 
     if (mysqli_query($conn, $order_add)) {
         echo "AddSUC";
@@ -53,15 +61,15 @@ link_man, link_methods, combo_info, pay_price, pay_id, pay_methods, pay_date, ti
 
 //    // pm _ ADD
 //
-    $pm_add = "INSERT INTO pm (reach_id, reach_apart, reach_name, reach_date,
-client_name, buy_serv, serv_price, time_limit, pay_price, pay_id, rec_id, deal_id, else_desc, upload_imgs, buy_type, $buy_type) VALUES ('$sales_id',
- '$sales_apart', '$sales_man', '$pay_date', '$link_man', '$combo_info',
- '$pay_price', '$time_limit', '$pay_price', '$pay_id', '$rec_id', '$price_id', '$desc_info', '$some_img', '$buy_type', '$pay_price')";
-
-  mysqli_query($conn, $pm_add);
+//    $pm_add = "INSERT INTO pm (reach_id, reach_apart, reach_name, reach_date,
+//client_name, buy_serv, serv_price, time_limit, pay_price, pay_id, rec_id, deal_id, else_desc, upload_imgs, buy_type, $buy_type) VALUES ('$sales_id',
+// '$sales_apart', '$sales_man', '$pay_date', '$link_man', '$combo_info',
+// '$pay_price', '$time_limit', '$pay_price', '$pay_id', '$rec_id', '$price_id', '$desc_info', '$some_img', '$buy_type', '$pay_price')";
 //
-//   // client ADD
-
+//  mysqli_query($conn, $pm_add);
+////
+////   // client ADD
+//
     $client_add = "INSERT INTO client (client_name, client_address, client_link,
 sales_man, write_man, shop_name, shop_url, shop_id, shop_grade, shop_industry, shop_type, files, combo_type) VALUES ('$link_man',
  '$shop_address', '$link_methods', '$sales_man', '$write_man', '$shop_name',
@@ -231,21 +239,20 @@ sales_man, write_man, shop_name, shop_url, shop_id, shop_grade, shop_industry, s
     $link_man = $_POST['link_man'];
 
 
-
-    $sql = "UPDATE orders SET $where_audit = '$audit_code' WHERE id = '$order_id'";
-
-    if(mysqli_query($conn, $sql)){
-        echo "auditChangeSuc";
-    } else {
-        echo "auditChange fail".mysqli_error($conn);
-    };
-
-    // audit the PM
-    $sql66 = "UPDATE pm SET stu = '1' WHERE reach_name = '$sales_man' AND pay_price = '$pay_price' AND client_name = '$link_man'";
-
-    mysqli_query($conn, $sql66);
-
     if ($audit_code === '2' || $audit_code === '3') {
+
+        $sql = "UPDATE orders SET $where_audit = '$audit_code' WHERE id = '$order_id'";
+
+        if(mysqli_query($conn, $sql)){
+            echo "auditChangeSuc";
+        } else {
+            echo "auditChange fail".mysqli_error($conn);
+        };
+
+        // audit the PM
+        $sql66 = "UPDATE pm SET stu = '1' WHERE reach_name = '$sales_man' AND pay_price = '$pay_price' AND client_name = '$link_man'";
+
+        mysqli_query($conn, $sql66);
 
         //fetch had no audit orders
         $rd = "SELECT audit_content FROM staff WHERE id = '$staff_id'";
@@ -261,36 +268,41 @@ sales_man, write_man, shop_name, shop_url, shop_id, shop_grade, shop_industry, s
 
           $alAudit = $row2['audit_content2'];
 
-          $alAudit .= $order_id.";";
+          if (strpos($alAudit, $order_id) === false) {
 
-        // write in alAudit's place
+              $alAudit .= $order_id.";";
 
-            $sql = "UPDATE staff SET audit_content2 = '$alAudit' WHERE id = '$staff_id'";
+              // write in alAudit's place
 
-            mysqli_query($conn, $sql);
+              $sql = "UPDATE staff SET audit_content2 = '$alAudit' WHERE id = '$staff_id'";
 
-            //   10;20;30   =>  0
-            //   10;        =>  0;20;30;
+              mysqli_query($conn, $sql);
 
-        // change init value
+              //   10;20;30   =>  0
+              //   10;        =>  0;20;30;
+
+              // change init value
 //        $begin = strpos($noAudit, $order_id);
 //          $stRes =substr($noAudit, $begin, 3);
-          $strs = explode(';', $noAudit);
-          $strs_new = "";
+              $strs = explode(';', $noAudit);
+              $strs_new = "";
 
-          foreach ($strs as $key => $value) {
+              foreach ($strs as $key => $value) {
 //              echo $value;
-              if ($value !== ""){
-                  if (strpos($value, $order_id) === false) {
+                  if ($value !== ""){
+                      if (strpos($value, $order_id) === false) {
 //                  array_push($str_arr, $value);
-                      $strs_new .= $value.";";
+                          $strs_new .= $value.";";
+                      }
                   }
               }
-          }
-        //  echo "strsNew".$strs_new;
-        $sql2 = "UPDATE staff SET audit_content = '$strs_new' WHERE id = '$staff_id'";
+              //  echo "strsNew".$strs_new;
+              $sql2 = "UPDATE staff SET audit_content = '$strs_new' WHERE id = '$staff_id'";
 
-        mysqli_query($conn, $sql2);
+              mysqli_query($conn, $sql2);
+          } else {
+              echo "Had audited!!!!!";
+          }
 
 //          print_r($str_arr);
 //        echo $noAudit."!!!".$alAudit."!!!";

@@ -92,7 +92,15 @@ if (mysqli_query($conn, $insert_db)){
 
      $newVal = "";
 //   print_r($row);
-            $newVal = $row['audit_content'].$order_id.";";
+    if (strpos($row['audit_content'], $order_id) === false) {
+
+        $newVal = $row['audit_content'].$order_id.";";
+
+    } else {
+        echo "Had order's id!!!";
+        exit;
+    }
+
 //
    // echo $newVal;
 //

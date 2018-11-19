@@ -25,38 +25,51 @@ function exportExcel($arr, $name) {
     $objPHPExcel->setActiveSheetIndex(0);
 // 设置表格第一行显示内容
     $objPHPExcel->getActiveSheet()
-        ->setCellValue('A1', '序号')
-        ->setCellValue('B1', '签单人')
-        ->setCellValue('C1', '所属部门')
-        ->setCellValue('D1', '签单时间')
-        ->setCellValue('E1', '客户名称')
-        ->setCellValue('F1', '订购服务')
-        ->setCellValue('G1', '服务价格')
-        ->setCellValue('H1', '服务期限')
-        ->setCellValue('I1', '支付金额')
-        ->setCellValue('J1', '支付账户')
-        ->setCellValue('K1', '收款账户')
-        ->setCellValue('L1', '交易订单号')
-        ->setCellValue('M1', '备注信息')
-        ->setCellValue('N1', '录入时间')
-        ->getStyle('A1:N1')->getFont()->getColor()->setARGB(PHPExcel_style_Color::COLOR_RED);
+        ->setCellValue('A1', '事业部')
+        ->setCellValue('B1', '签单部门')
+        ->setCellValue('C1', '签单人')
+        ->setCellValue('D1', '店铺ID')
+        ->setCellValue('E1', '店铺名称')
+        ->setCellValue('F1', '签单产品')
+        ->setCellValue('G1', '签单类型')
+        ->setCellValue('H1', '签单金额')
+        ->setCellValue('I1', '到账金额')
+        ->setCellValue('J1', '直接成本')
+        ->setCellValue('K1', '最终业绩')
+        ->setCellValue('L1', '到账日期')
+        ->setCellValue('M1', '付款方式')
+        ->setCellValue('N1', '付款账号')
+        ->setCellValue('O1', '签单渠道')
+        ->setCellValue('P1', '服务日期')
+        ->setCellValue('Q1', '收款账号')
+        ->setCellValue('R1', '交易订单号')
+        ->setCellValue('S1', '备注信息')
+        ->setCellValue('T1', '录入时间')
+        ->getStyle('A1:T1')->getFont()->getColor()->setARGB(PHPExcel_style_Color::COLOR_RED);
 
-    $objPHPExcel->getActiveSheet()->getstyle('A1:N1')->getFont()->setBold(true);
+    $objPHPExcel->getActiveSheet()->getStyle('A1:T1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
 
-    $objPHPExcel->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
-    $objPHPExcel->getActiveSheet()->getColumnDimension('C')->setAutoSize(true);
-    $objPHPExcel->getActiveSheet()->getColumnDimension('D')->setAutoSize(true);
-    $objPHPExcel->getActiveSheet()->getColumnDimension('E')->setAutoSize(true);
-    $objPHPExcel->getActiveSheet()->getColumnDimension('F')->setAutoSize(true);
-    $objPHPExcel->getActiveSheet()->getColumnDimension('G')->setAutoSize(true);
-    $objPHPExcel->getActiveSheet()->getColumnDimension('H')->setAutoSize(true);
-    $objPHPExcel->getActiveSheet()->getColumnDimension('I')->setAutoSize(true);
-    $objPHPExcel->getActiveSheet()->getColumnDimension('J')->setAutoSize(true);
-    $objPHPExcel->getActiveSheet()->getColumnDimension('K')->setAutoSize(true);
-    $objPHPExcel->getActiveSheet()->getColumnDimension('L')->setAutoSize(true);
-    $objPHPExcel->getActiveSheet()->getColumnDimension('M')->setAutoSize(true);
-    $objPHPExcel->getActiveSheet()->getColumnDimension('N')->setAutoSize(true);
+    $objPHPExcel->getActiveSheet()->getstyle('A1:T1')->getFont()->setBold(true);
 
+    $objPHPExcel->getActiveSheet()->getColumnDimension('B')->setWidth(18);
+    $objPHPExcel->getActiveSheet()->getColumnDimension('C')->setWidth(10);
+    $objPHPExcel->getActiveSheet()->getColumnDimension('D')->setWidth(20);
+    $objPHPExcel->getActiveSheet()->getColumnDimension('E')->setWidth(20);
+    $objPHPExcel->getActiveSheet()->getColumnDimension('F')->setWidth(20);
+    $objPHPExcel->getActiveSheet()->getColumnDimension('G')->setWidth(10);
+    $objPHPExcel->getActiveSheet()->getColumnDimension('H')->setWidth(10);
+    $objPHPExcel->getActiveSheet()->getColumnDimension('I')->setWidth(10);
+    $objPHPExcel->getActiveSheet()->getColumnDimension('J')->setWidth(10);
+    $objPHPExcel->getActiveSheet()->getColumnDimension('K')->setWidth(10);
+    $objPHPExcel->getActiveSheet()->getColumnDimension('L')->setWidth(16);
+    $objPHPExcel->getActiveSheet()->getColumnDimension('M')->setWidth(10);
+    $objPHPExcel->getActiveSheet()->getColumnDimension('N')->setWidth(20);
+    $objPHPExcel->getActiveSheet()->getColumnDimension('O')->setWidth(16);
+    $objPHPExcel->getActiveSheet()->getColumnDimension('P')->setWidth(20);
+    $objPHPExcel->getActiveSheet()->getColumnDimension('Q')->setWidth(20);
+    $objPHPExcel->getActiveSheet()->getColumnDimension('R')->setWidth(20);
+    $objPHPExcel->getActiveSheet()->getColumnDimension('S')->setWidth(20);
+    $objPHPExcel->getActiveSheet()->getColumnDimension('T')->setWidth(20);
 
     $key = 1;
     /*以下就是对处理Excel里的数据，横着取数据*/
@@ -67,20 +80,27 @@ function exportExcel($arr, $name) {
         $objPHPExcel->getActiveSheet()
 
             //Excel的第A列，name是你查出数组的键值字段，下面以此类推
-            ->setCellValue('A'.$key, $v['id'])
-            ->setCellValue('B'.$key, $v['reach_name'])
-            ->setCellValue('C'.$key, $v['reach_apart'])
-            ->setCellValue('D'.$key, $v['reach_date'])
-            ->setCellValue('E'.$key, $v['client_name'])
+            ->setCellValue('A'.$key, $v['job_type'])
+            ->setCellValue('B'.$key, $v['reach_apart'])
+            ->setCellValue('C'.$key, $v['reach_name'])
+            ->setCellValue('D'.$key, "\t".$v['shop_id'])
+            ->setCellValue('E'.$key, $v['shop_name'])
             ->setCellValue('F'.$key, $v['buy_serv'])
-            ->setCellValue('G'.$key, "\t".$v['serv_price'])
-            ->setCellValue('H'.$key, $v['time_limit'])
-            ->setCellValue('I'.$key, $v['pay_price'])
-            ->setCellValue('J'.$key, "\t".$v['pay_id'])
-            ->setCellValue('K'.$key, "\t".$v['rec_id'])
-            ->setCellValue('L'.$key, "\t".$v['deal_id'])
-            ->setCellValue('M'.$key, $v['else_desc'])
-            ->setCellValue('N'.$key, $v['reg_date']);
+            ->setCellValue('G'.$key, $v['reach_type'])
+
+            ->setCellValue('H'.$key, "\t".$v['reach_price'])
+            ->setCellValue('I'.$key, "\t".$v['pay_price'])
+            ->setCellValue('J'.$key, "\t".$v['pay_cost'])
+            ->setCellValue('K'.$key, $v['pay_price'] - $v['pay_cost'])
+            ->setCellValue('L'.$key, $v['reach_date'])
+            ->setCellValue('M'.$key, $v['pay_methods'])
+            ->setCellValue('N'.$key, "\t".$v['pay_id'])
+            ->setCellValue('O'.$key, $v['reach_methods'])
+            ->setCellValue('P'.$key, $v['time_limit'])
+            ->setCellValue('Q'.$key, "\t".$v['rec_id'])
+            ->setCellValue('R'.$key, "\t".$v['deal_id'])
+            ->setCellValue('S'.$key, $v['else_desc'])
+            ->setCellValue('T'.$key, $v['reg_date']);
 
     }
 //设置当前的表格
@@ -137,6 +157,7 @@ if($bn && $ed !== ""){
     };
 
     $excel2 = exportExcel($data2, 'PerformanceDataExport');
+
 } else {
     exit;
 };

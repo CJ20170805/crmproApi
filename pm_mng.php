@@ -28,19 +28,43 @@ if ($flag === 'add') {
     $upload_imgs = $_POST['upload_imgs'];
     $buy_type = $_POST['buy_type'];
 
+    $job_type = $_POST['job_type'];
+    $shop_id = $_POST['shop_id'];
+    $shop_name = $_POST['shop_name'];
+    $reach_type = $_POST['reach_type'];
+    $reach_methods = $_POST['reach_methods'];
+    $reach_price = $_POST['reach_price'];
+    $pay_cost = $_POST['pay_cost'];
+    $pay_methods = $_POST['pay_methods'];
+
+
 //    echo $pay_price.$pay_id.$rec_id.$deal_id.$else_desc.$upload_imgs;
 //    echo $client_name.$sales_man;
 
     $pm_add = "INSERT INTO pm (reach_id, reach_apart, reach_name, reach_date,
-client_name, buy_serv, serv_price, time_limit, pay_price, pay_id, rec_id, deal_id, else_desc, upload_imgs, buy_type, $buy_type, stu) VALUES ('$id',
+client_name, buy_serv, serv_price, time_limit, pay_price, pay_id, rec_id,
+ deal_id, else_desc, upload_imgs, buy_type, $buy_type, stu, job_type, shop_id,
+  shop_name, reach_type, reach_methods, reach_price, pay_cost, pay_methods) VALUES ('$id',
  '$apart', '$name', '$reach_date', '$client_name', '$buy_serv',
- '$serv_price', '$time_limit', '$pay_price', '$pay_id', '$rec_id', '$deal_id', '$else_desc', '$upload_imgs', '$buy_type', '$pay_price', '1')";
+ '$serv_price', '$time_limit', '$pay_price', '$pay_id', '$rec_id', '$deal_id',
+  '$else_desc', '$upload_imgs', '$buy_type', '$pay_price', '1', '$job_type',
+   '$shop_id', '$shop_name', '$reach_type', '$reach_methods', '$reach_price', '$pay_cost', '$pay_methods')";
 
     if (mysqli_query($conn, $pm_add)) {
         echo "AddSUC";
     } else {
         echo "AddFAL" . mysqli_error($conn);
     };
+
+
+//    $pm_add = "INSERT INTO pm (reach_id, reach_apart, reach_name, reach_date,
+//client_name, buy_serv, serv_price, time_limit, pay_price, pay_id, rec_id, deal_id, else_desc, upload_imgs, buy_type, $buy_type, job_type, shop_id, shop_name, reach_type, reach_price, pay_cost, pay_methods, reach_methods) VALUES ('$sales_id',
+// '$sales_apart', '$sales_man', '$pay_date', '$link_man', '$combo_info',
+// '$pay_price', '$time_limit', '$pay_price', '$pay_id', '$rec_id', '$price_id', '$desc_info', '$some_img', '$buy_type', '$pay_price', '$job_type', '$shop_id', '$shop_name', '$reach_type', '$reach_price', '$pay_cost', '$pay_methods', '$reach_methods')";
+//
+//    if (!mysqli_query($conn, $pm_add)){
+//        echo "AddPmFAL".mysqli_error($conn);
+//    }
 
 } elseif ($flag === 'fetch') {
 

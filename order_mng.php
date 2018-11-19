@@ -61,12 +61,14 @@ link_man, link_methods, combo_info, pay_price, pay_id, pay_methods, pay_date, ti
 
 //    // pm _ ADD
 //
-//    $pm_add = "INSERT INTO pm (reach_id, reach_apart, reach_name, reach_date,
-//client_name, buy_serv, serv_price, time_limit, pay_price, pay_id, rec_id, deal_id, else_desc, upload_imgs, buy_type, $buy_type) VALUES ('$sales_id',
-// '$sales_apart', '$sales_man', '$pay_date', '$link_man', '$combo_info',
-// '$pay_price', '$time_limit', '$pay_price', '$pay_id', '$rec_id', '$price_id', '$desc_info', '$some_img', '$buy_type', '$pay_price')";
-//
-//  mysqli_query($conn, $pm_add);
+    $pm_add = "INSERT INTO pm (reach_id, reach_apart, reach_name, reach_date,
+client_name, buy_serv, serv_price, time_limit, pay_price, pay_id, rec_id, deal_id, else_desc, upload_imgs, buy_type, $buy_type, job_type, shop_id, shop_name, reach_type, reach_price, pay_cost, pay_methods, reach_methods) VALUES ('$sales_id',
+ '$sales_apart', '$sales_man', '$pay_date', '$link_man', '$combo_info',
+ '$pay_price', '$time_limit', '$pay_price', '$pay_id', '$rec_id', '$price_id', '$desc_info', '$some_img', '$buy_type', '$pay_price', '$job_type', '$shop_id', '$shop_name', '$reach_type', '$reach_price', '$pay_cost', '$pay_methods', '$reach_methods')";
+
+  if (!mysqli_query($conn, $pm_add)){
+      echo "AddPmFAL".mysqli_error($conn);
+  }
 ////
 ////   // client ADD
 //

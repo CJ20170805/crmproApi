@@ -10,6 +10,15 @@ include "./connect_db.php";
 $flag = $_POST['flag'];
 
 if ($flag === 'add') {
+    $power = $_POST['power'];
+    $jl = 1;
+    $zjl = 1;
+    $stu = 0;
+    if ($power === '80001'){
+        $jl = 2;
+        $zjl = 2;
+        $stu = 1;
+    }
     // order add
     $shop_name = $_POST['shop_name'];
     $shop_url = $_POST['shop_url'];
@@ -48,9 +57,14 @@ if ($flag === 'add') {
     // echo $shop_name.$shop_url.$shop_id.$shop_type.$link_methods.$time_limit;
 
     $order_add = "INSERT INTO orders (shop_name, shop_url, shop_id, shop_type,
-link_man, link_methods, combo_info, pay_price, pay_id, pay_methods, pay_date, time_limit, desc_info, some_img, sales_man, buy_type, rec_id, price_id, sales_id, sales_apart, reach_type, pay_cost, reach_methods, job_type, reach_price) VALUES ('$shop_name',
+link_man, link_methods, combo_info, pay_price, pay_id, pay_methods, pay_date,
+ time_limit, desc_info, some_img, sales_man, buy_type, rec_id, price_id, sales_id,
+  sales_apart, reach_type, pay_cost, reach_methods, job_type, reach_price, jl_audit, zjl_audit) VALUES ('$shop_name',
  '$shop_url', '$shop_id', '$shop_type', '$link_man', '$link_methods',
- '$combo_info', '$pay_price', '$pay_id', '$pay_methods', '$pay_date', '$time_limit', '$desc_info', '$some_img', '$sales_man', '$buy_type', '$rec_id', '$price_id', '$sales_id', '$sales_apart', '$reach_type', '$pay_cost', '$reach_methods', '$job_type', '$reach_price')";
+ '$combo_info', '$pay_price', '$pay_id', '$pay_methods', '$pay_date',
+  '$time_limit', '$desc_info', '$some_img', '$sales_man', '$buy_type',
+   '$rec_id', '$price_id', '$sales_id', '$sales_apart', '$reach_type',
+    '$pay_cost', '$reach_methods', '$job_type', '$reach_price', '$jl', '$zjl')";
 
     if (mysqli_query($conn, $order_add)) {
         echo "AddSUC";
@@ -62,9 +76,13 @@ link_man, link_methods, combo_info, pay_price, pay_id, pay_methods, pay_date, ti
 //    // pm _ ADD
 //
     $pm_add = "INSERT INTO pm (reach_id, reach_apart, reach_name, reach_date,
-client_name, buy_serv, serv_price, time_limit, pay_price, pay_id, rec_id, deal_id, else_desc, upload_imgs, buy_type, $buy_type, job_type, shop_id, shop_name, reach_type, reach_price, pay_cost, pay_methods, reach_methods) VALUES ('$sales_id',
+client_name, buy_serv, serv_price, time_limit, pay_price, pay_id, rec_id, deal_id,
+ else_desc, upload_imgs, buy_type, $buy_type, job_type, shop_id, shop_name, reach_type,
+  reach_price, pay_cost, pay_methods, reach_methods, stu) VALUES ('$sales_id',
  '$sales_apart', '$sales_man', '$pay_date', '$link_man', '$combo_info',
- '$pay_price', '$time_limit', '$pay_price', '$pay_id', '$rec_id', '$price_id', '$desc_info', '$some_img', '$buy_type', '$pay_price', '$job_type', '$shop_id', '$shop_name', '$reach_type', '$reach_price', '$pay_cost', '$pay_methods', '$reach_methods')";
+ '$pay_price', '$time_limit', '$pay_price', '$pay_id', '$rec_id', '$price_id',
+  '$desc_info', '$some_img', '$buy_type', '$pay_price', '$job_type', '$shop_id',
+   '$shop_name', '$reach_type', '$reach_price', '$pay_cost', '$pay_methods', '$reach_methods', '$stu')";
 
   if (!mysqli_query($conn, $pm_add)){
       echo "AddPmFAL".mysqli_error($conn);

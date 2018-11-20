@@ -39,7 +39,7 @@ if ($flag === 'myClient') {
 
     $user_name = $_POST['user_name'];
 
-    $pm_fetch = "SELECT pay_price FROM pm WHERE reach_name = '$user_name'";
+    $pm_fetch = "SELECT pay_price FROM pm WHERE reach_name = '$user_name' AND stu = '1'";
 
     $res = mysqli_query($conn, $pm_fetch);
     $data =array();

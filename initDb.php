@@ -127,7 +127,7 @@ include "./connect_db.php";
 //   sales_man VARCHAR(30) NOT NULL,
 //   write_man VARCHAR(30) NOT NULL,
 //   shop_name VARCHAR(30) NOT NULL,
-//   shop_url VARCHAR(30) NOT NULL,
+//   shop_url VARCHAR(255) NOT NULL,
 //   shop_id VARCHAR(30) NOT NULL,
 //   shop_grade VARCHAR(30) NOT NULL,
 //   shop_industry VARCHAR(30) NOT NULL,
@@ -174,6 +174,15 @@ include "./connect_db.php";
 //   yongjin VARCHAR(30) NOT NULL,
 //   qita VARCHAR(30) NOT NULL,
 //   stu VARCHAR(2) NOT NULL DEFAULT '0',
+//    job_type VARCHAR(30),
+//    shop_id VARCHAR(30),
+//    job_type VARCHAR(30),
+//    shop_name VARCHAR(30),
+//    reach_type VARCHAR(30),
+//    reach_price VARCHAR(30),
+//    pay_cost VARCHAR(30),
+//    pay_methods VARCHAR(30),
+//    reach_methods VARCHAR(30),
 //   reg_date TIMESTAMP
 //   )";
 //

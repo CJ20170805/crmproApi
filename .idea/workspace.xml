@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40b25cef-740c-41ee-9d9c-658999e9ca26" name="默认的" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/computed_home.php" afterPath="$PROJECT_DIR$/computed_home.php" />
+      <change beforePath="$PROJECT_DIR$/client_mng.php" afterPath="$PROJECT_DIR$/client_mng.php" />
       <change beforePath="$PROJECT_DIR$/initDb.php" afterPath="$PROJECT_DIR$/initDb.php" />
       <change beforePath="$PROJECT_DIR$/order_mng.php" afterPath="$PROJECT_DIR$/order_mng.php" />
     </list>
@@ -68,50 +67,56 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="order_mng.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="order_mng.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/order_mng.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="19" column="17" lean-forward="true" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+            <state relative-caret-position="580">
+              <caret line="98" column="0" lean-forward="true" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
               <folding>
-                <marker date="1542704127878" expanded="true" signature="1585:2285" ph="INSERT INTO orders... " />
-                <marker date="1542704127878" expanded="true" signature="2456:3103" ph="INSERT INTO pm... " />
-                <marker date="1542704127878" expanded="true" signature="3240:3609" ph="INSERT INTO client... " />
-                <marker date="1542704127878" expanded="true" signature="3917:3937" ph="SELECT * FRO... orders" />
-                <marker date="1542704127878" expanded="true" signature="4291:4341" ph="SELECT * FRO... orders" />
-                <marker date="1542704127878" expanded="true" signature="4652:4698" ph="SELECT * FRO... orders" />
-                <marker date="1542704127878" expanded="true" signature="5196:5240" ph="SELECT st_or... staff" />
-                <marker date="1542704127878" expanded="true" signature="5610:5666" ph="UPDATE staff... " />
-                <marker date="1542704127878" expanded="true" signature="5951:5999" ph="SELECT st_or... staff" />
-                <marker date="1542704127878" expanded="true" signature="6577:6617" ph="SELECT * FRO... orders" />
-                <marker date="1542704127878" expanded="true" signature="7092:7131" ph="DELETE FROM orders... " />
-                <marker date="1542704127878" expanded="true" signature="7581:7621" ph="SELECT * FRO... orders" />
-                <marker date="1542704127878" expanded="true" signature="8321:8390" ph="UPDATE orders... " />
-                <marker date="1542704127878" expanded="true" signature="8596:8710" ph="UPDATE pm... " />
-                <marker date="1542704127878" expanded="true" signature="8803:8857" ph="SELECT audit... staff" />
-                <marker date="1542704127878" expanded="true" signature="9049:9104" ph="SELECT audit... staff" />
-                <marker date="1542704127878" expanded="true" signature="9417:9484" ph="UPDATE staff... " />
-                <marker date="1542704127878" expanded="true" signature="10229:10296" ph="UPDATE staff... " />
-                <marker date="1542704127878" expanded="true" signature="10644:10711" ph="UPDATE orders... " />
-                <marker date="1542704127878" expanded="true" signature="10909:10966" ph="UPDATE orders... " />
-                <marker date="1542704127878" expanded="true" signature="11166:11223" ph="UPDATE orders... " />
+                <marker date="1542786155049" expanded="true" signature="1585:2285" ph="INSERT INTO orders... " />
+                <marker date="1542786155049" expanded="true" signature="2456:3103" ph="INSERT INTO pm... " />
+                <marker date="1542786155049" expanded="true" signature="3240:3631" ph="INSERT INTO client... " />
+                <marker date="1542786155049" expanded="true" signature="3939:3959" ph="SELECT * FRO... orders" />
+                <marker date="1542786155049" expanded="true" signature="4313:4363" ph="SELECT * FRO... orders" />
+                <marker date="1542786155049" expanded="true" signature="4674:4720" ph="SELECT * FRO... orders" />
+                <marker date="1542786155049" expanded="true" signature="5218:5262" ph="SELECT st_or... staff" />
+                <marker date="1542786155049" expanded="true" signature="5632:5688" ph="UPDATE staff... " />
+                <marker date="1542786155049" expanded="true" signature="5973:6021" ph="SELECT st_or... staff" />
+                <marker date="1542786155049" expanded="true" signature="6599:6639" ph="SELECT * FRO... orders" />
+                <marker date="1542786155049" expanded="true" signature="7114:7153" ph="DELETE FROM orders... " />
+                <marker date="1542786155049" expanded="true" signature="7603:7643" ph="SELECT * FRO... orders" />
+                <marker date="1542786155049" expanded="true" signature="8343:8412" ph="UPDATE orders... " />
+                <marker date="1542786155049" expanded="true" signature="8618:8732" ph="UPDATE pm... " />
+                <marker date="1542786155049" expanded="true" signature="8825:8879" ph="SELECT audit... staff" />
+                <marker date="1542786155049" expanded="true" signature="9071:9126" ph="SELECT audit... staff" />
+                <marker date="1542786155049" expanded="true" signature="9439:9506" ph="UPDATE staff... " />
+                <marker date="1542786155049" expanded="true" signature="10251:10318" ph="UPDATE staff... " />
+                <marker date="1542786155049" expanded="true" signature="10666:10733" ph="UPDATE orders... " />
+                <marker date="1542786155049" expanded="true" signature="10931:10988" ph="UPDATE orders... " />
+                <marker date="1542786155049" expanded="true" signature="11188:11245" ph="UPDATE orders... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="client_mng.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="client_mng.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client_mng.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="880">
-              <caret line="44" column="8" lean-forward="false" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
+            <state relative-caret-position="660">
+              <caret line="36" column="119" lean-forward="true" selection-start-line="36" selection-start-column="119" selection-end-line="36" selection-end-column="119" />
               <folding>
-                <marker date="1542079228488" expanded="true" signature="676:1008" ph="INSERT INTO client... " />
-                <marker date="1542079228488" expanded="true" signature="1198:1218" ph="SELECT * FRO... client" />
-                <marker date="1542079228488" expanded="true" signature="1645:1665" ph="SELECT * FRO... client" />
-                <marker date="1542079228488" expanded="true" signature="2019:2069" ph="SELECT * FRO... client" />
-                <marker date="1542079228488" expanded="true" signature="2380:2426" ph="SELECT * FRO... client" />
-                <marker date="1542079228488" expanded="true" signature="2786:2824" ph="DELETE FROM client... " />
+                <marker date="1542788279976" expanded="true" signature="724:1086" ph="INSERT INTO client... " />
+                <marker date="1542788279976" expanded="true" signature="1276:1296" ph="SELECT * FRO... client" />
+                <marker date="1542788279976" expanded="true" signature="1763:1783" ph="SELECT * FRO... client" />
+                <marker date="1542788279976" expanded="true" signature="1763:1811" ph="SELECT * FRO... client" />
+                <marker date="1542788279976" expanded="true" signature="2165:2215" ph="SELECT * FRO... client" />
+                <marker date="1542788279976" expanded="true" signature="2165:2241" ph="SELECT * FRO... client" />
+                <marker date="1542788279976" expanded="true" signature="2552:2598" ph="SELECT * FRO... client" />
+                <marker date="1542788279976" expanded="true" signature="2552:2624" ph="SELECT * FRO... client" />
+                <marker date="1542788279976" expanded="true" signature="2984:3022" ph="DELETE FROM client... " />
+                <marker date="1542788279976" expanded="true" signature="3375:3424" ph="SELECT * FRO... client" />
+                <marker date="1542788279976" expanded="true" signature="3737:3785" ph="SELECT * FRO... client" />
+                <marker date="1542788279976" expanded="true" signature="3737:3812" ph="SELECT * FRO... client" />
               </folding>
             </state>
           </provider>
@@ -120,7 +125,7 @@
       <file leaf-file-name="pm_mng.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pm_mng.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
+            <state relative-caret-position="1780">
               <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
               <folding>
                 <marker date="1542599335556" expanded="true" signature="1148:1781" ph="INSERT INTO pm... " />
@@ -159,19 +164,19 @@
       <file leaf-file-name="initDb.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/initDb.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="110" column="38" lean-forward="true" selection-start-line="110" selection-start-column="38" selection-end-line="110" selection-end-column="38" />
+            <state relative-caret-position="500">
+              <caret line="136" column="27" lean-forward="true" selection-start-line="136" selection-start-column="27" selection-end-line="136" selection-end-column="27" />
               <folding>
-                <marker date="1542699718764" expanded="true" signature="69:929" ph="CREATE TABLE... staff" />
-                <marker date="1542699718764" expanded="true" signature="69:1139" ph="CREATE TABLE... staff" />
-                <marker date="1542699718764" expanded="true" signature="1340:1538" ph="CREATE TABLE... loginform" />
-                <marker date="1542699718764" expanded="true" signature="1733:2933" ph="CREATE TABLE... orders" />
-                <marker date="1542699718764" expanded="true" signature="3108:3149" ph="ALTER TABLE orders... " />
-                <marker date="1542699718764" expanded="true" signature="3305:3603" ph="CREATE TABLE... acord" />
-                <marker date="1542699718764" expanded="true" signature="3787:4406" ph="CREATE TABLE... client" />
-                <marker date="1542699718764" expanded="true" signature="4592:4633" ph="ALTER TABLE client... " />
-                <marker date="1542699718764" expanded="true" signature="4766:5935" ph="CREATE TABLE... pm" />
-                <marker date="1542699718764" expanded="true" signature="6097:6134" ph="ALTER TABLE pm... " />
+                <marker date="1542782781267" expanded="true" signature="69:929" ph="CREATE TABLE... staff" />
+                <marker date="1542782781267" expanded="true" signature="69:1139" ph="CREATE TABLE... staff" />
+                <marker date="1542782781267" expanded="true" signature="1340:1538" ph="CREATE TABLE... loginform" />
+                <marker date="1542782781267" expanded="true" signature="1733:2933" ph="CREATE TABLE... orders" />
+                <marker date="1542782781267" expanded="true" signature="3108:3149" ph="ALTER TABLE orders... " />
+                <marker date="1542782781267" expanded="true" signature="3305:3603" ph="CREATE TABLE... acord" />
+                <marker date="1542782781267" expanded="true" signature="3787:4518" ph="CREATE TABLE... client" />
+                <marker date="1542782781267" expanded="true" signature="4704:4745" ph="ALTER TABLE client... " />
+                <marker date="1542782781267" expanded="true" signature="4878:6047" ph="CREATE TABLE... pm" />
+                <marker date="1542782781267" expanded="true" signature="6209:6246" ph="ALTER TABLE pm... " />
               </folding>
             </state>
           </provider>
@@ -180,7 +185,7 @@
       <file leaf-file-name="computed_home.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/computed_home.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
+            <state relative-caret-position="1340">
               <caret line="67" column="32" lean-forward="true" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
               <folding>
                 <marker date="1542676086898" expanded="true" signature="239:291" ph="SELECT id FR... client" />
@@ -235,7 +240,6 @@
         <option value="$PROJECT_DIR$/user_info.php" />
         <option value="$PROJECT_DIR$/my_home.php" />
         <option value="$PROJECT_DIR$/staff_img.php" />
-        <option value="$PROJECT_DIR$/client_mng.php" />
         <option value="$PROJECT_DIR$/api_login.php" />
         <option value="$PROJECT_DIR$/staff_mng.php" />
         <option value="$PROJECT_DIR$/pm_mng.php" />
@@ -243,6 +247,7 @@
         <option value="$PROJECT_DIR$/computed_home.php" />
         <option value="$PROJECT_DIR$/initDb.php" />
         <option value="$PROJECT_DIR$/order_mng.php" />
+        <option value="$PROJECT_DIR$/client_mng.php" />
       </list>
     </option>
   </component>
@@ -254,10 +259,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="378" />
-    <option name="y" value="47" />
+    <option name="x" value="363" />
+    <option name="y" value="40" />
     <option name="width" value="1575" />
-    <option name="height" value="936" />
+    <option name="height" value="1016" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="添加" />
@@ -277,6 +282,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -346,7 +352,6 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -418,17 +423,18 @@
       <workItem from="1542331834231" duration="8368000" />
       <workItem from="1542589265450" duration="11806000" />
       <workItem from="1542675559513" duration="9331000" />
+      <workItem from="1542761882146" duration="7214000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="257759000" />
+    <option name="totallyTimeSpent" value="264973000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="378" y="47" width="1575" height="936" extended-state="1" />
+    <frame x="363" y="40" width="1575" height="1016" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15581854" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15779093" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -496,16 +502,16 @@
         <state relative-caret-position="800">
           <caret line="40" column="8" lean-forward="false" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
           <folding>
-            <marker date="1542699718764" expanded="true" signature="69:929" ph="CREATE TABLE... staff" />
-            <marker date="1542699718764" expanded="true" signature="69:1139" ph="CREATE TABLE... staff" />
-            <marker date="1542699718764" expanded="true" signature="1340:1538" ph="CREATE TABLE... loginform" />
-            <marker date="1542699718764" expanded="true" signature="1733:2933" ph="CREATE TABLE... orders" />
-            <marker date="1542699718764" expanded="true" signature="3108:3149" ph="ALTER TABLE orders... " />
-            <marker date="1542699718764" expanded="true" signature="3305:3603" ph="CREATE TABLE... acord" />
-            <marker date="1542699718764" expanded="true" signature="3787:4406" ph="CREATE TABLE... client" />
-            <marker date="1542699718764" expanded="true" signature="4592:4633" ph="ALTER TABLE client... " />
-            <marker date="1542699718764" expanded="true" signature="4766:5935" ph="CREATE TABLE... pm" />
-            <marker date="1542699718764" expanded="true" signature="6097:6134" ph="ALTER TABLE pm... " />
+            <marker date="1542782781267" expanded="true" signature="69:929" ph="CREATE TABLE... staff" />
+            <marker date="1542782781267" expanded="true" signature="69:1139" ph="CREATE TABLE... staff" />
+            <marker date="1542782781267" expanded="true" signature="1340:1538" ph="CREATE TABLE... loginform" />
+            <marker date="1542782781267" expanded="true" signature="1733:2933" ph="CREATE TABLE... orders" />
+            <marker date="1542782781267" expanded="true" signature="3108:3149" ph="ALTER TABLE orders... " />
+            <marker date="1542782781267" expanded="true" signature="3305:3603" ph="CREATE TABLE... acord" />
+            <marker date="1542782781267" expanded="true" signature="3787:4518" ph="CREATE TABLE... client" />
+            <marker date="1542782781267" expanded="true" signature="4704:4745" ph="ALTER TABLE client... " />
+            <marker date="1542782781267" expanded="true" signature="4878:6047" ph="CREATE TABLE... pm" />
+            <marker date="1542782781267" expanded="true" signature="6209:6246" ph="ALTER TABLE pm... " />
           </folding>
         </state>
       </provider>
@@ -564,16 +570,16 @@
         <state relative-caret-position="1120">
           <caret line="56" column="12" lean-forward="false" selection-start-line="56" selection-start-column="12" selection-end-line="56" selection-end-column="12" />
           <folding>
-            <marker date="1542699718764" expanded="true" signature="69:929" ph="CREATE TABLE... staff" />
-            <marker date="1542699718764" expanded="true" signature="69:1139" ph="CREATE TABLE... staff" />
-            <marker date="1542699718764" expanded="true" signature="1340:1538" ph="CREATE TABLE... loginform" />
-            <marker date="1542699718764" expanded="true" signature="1733:2933" ph="CREATE TABLE... orders" />
-            <marker date="1542699718764" expanded="true" signature="3108:3149" ph="ALTER TABLE orders... " />
-            <marker date="1542699718764" expanded="true" signature="3305:3603" ph="CREATE TABLE... acord" />
-            <marker date="1542699718764" expanded="true" signature="3787:4406" ph="CREATE TABLE... client" />
-            <marker date="1542699718764" expanded="true" signature="4592:4633" ph="ALTER TABLE client... " />
-            <marker date="1542699718764" expanded="true" signature="4766:5935" ph="CREATE TABLE... pm" />
-            <marker date="1542699718764" expanded="true" signature="6097:6134" ph="ALTER TABLE pm... " />
+            <marker date="1542782781267" expanded="true" signature="69:929" ph="CREATE TABLE... staff" />
+            <marker date="1542782781267" expanded="true" signature="69:1139" ph="CREATE TABLE... staff" />
+            <marker date="1542782781267" expanded="true" signature="1340:1538" ph="CREATE TABLE... loginform" />
+            <marker date="1542782781267" expanded="true" signature="1733:2933" ph="CREATE TABLE... orders" />
+            <marker date="1542782781267" expanded="true" signature="3108:3149" ph="ALTER TABLE orders... " />
+            <marker date="1542782781267" expanded="true" signature="3305:3603" ph="CREATE TABLE... acord" />
+            <marker date="1542782781267" expanded="true" signature="3787:4518" ph="CREATE TABLE... client" />
+            <marker date="1542782781267" expanded="true" signature="4704:4745" ph="ALTER TABLE client... " />
+            <marker date="1542782781267" expanded="true" signature="4878:6047" ph="CREATE TABLE... pm" />
+            <marker date="1542782781267" expanded="true" signature="6209:6246" ph="ALTER TABLE pm... " />
           </folding>
         </state>
       </provider>
@@ -625,16 +631,16 @@
         <state relative-caret-position="1060">
           <caret line="53" column="31" lean-forward="false" selection-start-line="53" selection-start-column="31" selection-end-line="53" selection-end-column="31" />
           <folding>
-            <marker date="1542699718764" expanded="true" signature="69:929" ph="CREATE TABLE... staff" />
-            <marker date="1542699718764" expanded="true" signature="69:1139" ph="CREATE TABLE... staff" />
-            <marker date="1542699718764" expanded="true" signature="1340:1538" ph="CREATE TABLE... loginform" />
-            <marker date="1542699718764" expanded="true" signature="1733:2933" ph="CREATE TABLE... orders" />
-            <marker date="1542699718764" expanded="true" signature="3108:3149" ph="ALTER TABLE orders... " />
-            <marker date="1542699718764" expanded="true" signature="3305:3603" ph="CREATE TABLE... acord" />
-            <marker date="1542699718764" expanded="true" signature="3787:4406" ph="CREATE TABLE... client" />
-            <marker date="1542699718764" expanded="true" signature="4592:4633" ph="ALTER TABLE client... " />
-            <marker date="1542699718764" expanded="true" signature="4766:5935" ph="CREATE TABLE... pm" />
-            <marker date="1542699718764" expanded="true" signature="6097:6134" ph="ALTER TABLE pm... " />
+            <marker date="1542782781267" expanded="true" signature="69:929" ph="CREATE TABLE... staff" />
+            <marker date="1542782781267" expanded="true" signature="69:1139" ph="CREATE TABLE... staff" />
+            <marker date="1542782781267" expanded="true" signature="1340:1538" ph="CREATE TABLE... loginform" />
+            <marker date="1542782781267" expanded="true" signature="1733:2933" ph="CREATE TABLE... orders" />
+            <marker date="1542782781267" expanded="true" signature="3108:3149" ph="ALTER TABLE orders... " />
+            <marker date="1542782781267" expanded="true" signature="3305:3603" ph="CREATE TABLE... acord" />
+            <marker date="1542782781267" expanded="true" signature="3787:4518" ph="CREATE TABLE... client" />
+            <marker date="1542782781267" expanded="true" signature="4704:4745" ph="ALTER TABLE client... " />
+            <marker date="1542782781267" expanded="true" signature="4878:6047" ph="CREATE TABLE... pm" />
+            <marker date="1542782781267" expanded="true" signature="6209:6246" ph="ALTER TABLE pm... " />
           </folding>
         </state>
       </provider>
@@ -778,10 +784,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="18" column="18" lean-forward="false" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-          <folding>
-            <marker date="1537929248150" expanded="true" signature="157:176" ph="SELECT * FRO... staff" />
-            <marker date="1537929248150" expanded="true" signature="621:687" ph="INSERT INTO staff... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -793,29 +795,6 @@
             <marker date="1542247588337" expanded="true" signature="120:193" ph="select * fro... loginform" />
             <marker date="1542247588337" expanded="true" signature="211:280" ph="select * fro... staff" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client_mng.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="880">
-          <caret line="44" column="8" lean-forward="false" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
-          <folding>
-            <marker date="1542079228488" expanded="true" signature="676:1008" ph="INSERT INTO client... " />
-            <marker date="1542079228488" expanded="true" signature="1198:1218" ph="SELECT * FRO... client" />
-            <marker date="1542079228488" expanded="true" signature="1645:1665" ph="SELECT * FRO... client" />
-            <marker date="1542079228488" expanded="true" signature="2019:2069" ph="SELECT * FRO... client" />
-            <marker date="1542079228488" expanded="true" signature="2380:2426" ph="SELECT * FRO... client" />
-            <marker date="1542079228488" expanded="true" signature="2786:2824" ph="DELETE FROM client... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/staff_img.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="30" column="77" lean-forward="false" selection-start-line="30" selection-start-column="77" selection-end-line="30" selection-end-column="77" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -860,7 +839,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pm_mng.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
+        <state relative-caret-position="1780">
           <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
           <folding>
             <marker date="1542599335556" expanded="true" signature="1148:1781" ph="INSERT INTO pm... " />
@@ -881,7 +860,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/computed_home.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
+        <state relative-caret-position="1340">
           <caret line="67" column="32" lean-forward="true" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
           <folding>
             <marker date="1542676086898" expanded="true" signature="239:291" ph="SELECT id FR... client" />
@@ -897,49 +876,78 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/initDb.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="110" column="38" lean-forward="true" selection-start-line="110" selection-start-column="38" selection-end-line="110" selection-end-column="38" />
+        <state relative-caret-position="500">
+          <caret line="136" column="27" lean-forward="true" selection-start-line="136" selection-start-column="27" selection-end-line="136" selection-end-column="27" />
           <folding>
-            <marker date="1542699718764" expanded="true" signature="69:929" ph="CREATE TABLE... staff" />
-            <marker date="1542699718764" expanded="true" signature="69:1139" ph="CREATE TABLE... staff" />
-            <marker date="1542699718764" expanded="true" signature="1340:1538" ph="CREATE TABLE... loginform" />
-            <marker date="1542699718764" expanded="true" signature="1733:2933" ph="CREATE TABLE... orders" />
-            <marker date="1542699718764" expanded="true" signature="3108:3149" ph="ALTER TABLE orders... " />
-            <marker date="1542699718764" expanded="true" signature="3305:3603" ph="CREATE TABLE... acord" />
-            <marker date="1542699718764" expanded="true" signature="3787:4406" ph="CREATE TABLE... client" />
-            <marker date="1542699718764" expanded="true" signature="4592:4633" ph="ALTER TABLE client... " />
-            <marker date="1542699718764" expanded="true" signature="4766:5935" ph="CREATE TABLE... pm" />
-            <marker date="1542699718764" expanded="true" signature="6097:6134" ph="ALTER TABLE pm... " />
+            <marker date="1542782781267" expanded="true" signature="69:929" ph="CREATE TABLE... staff" />
+            <marker date="1542782781267" expanded="true" signature="69:1139" ph="CREATE TABLE... staff" />
+            <marker date="1542782781267" expanded="true" signature="1340:1538" ph="CREATE TABLE... loginform" />
+            <marker date="1542782781267" expanded="true" signature="1733:2933" ph="CREATE TABLE... orders" />
+            <marker date="1542782781267" expanded="true" signature="3108:3149" ph="ALTER TABLE orders... " />
+            <marker date="1542782781267" expanded="true" signature="3305:3603" ph="CREATE TABLE... acord" />
+            <marker date="1542782781267" expanded="true" signature="3787:4518" ph="CREATE TABLE... client" />
+            <marker date="1542782781267" expanded="true" signature="4704:4745" ph="ALTER TABLE client... " />
+            <marker date="1542782781267" expanded="true" signature="4878:6047" ph="CREATE TABLE... pm" />
+            <marker date="1542782781267" expanded="true" signature="6209:6246" ph="ALTER TABLE pm... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/staff_img.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="30" column="77" lean-forward="false" selection-start-line="30" selection-start-column="77" selection-end-line="30" selection-end-column="77" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/order_mng.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="19" column="17" lean-forward="true" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+        <state relative-caret-position="580">
+          <caret line="98" column="0" lean-forward="true" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
           <folding>
-            <marker date="1542704127878" expanded="true" signature="1585:2285" ph="INSERT INTO orders... " />
-            <marker date="1542704127878" expanded="true" signature="2456:3103" ph="INSERT INTO pm... " />
-            <marker date="1542704127878" expanded="true" signature="3240:3609" ph="INSERT INTO client... " />
-            <marker date="1542704127878" expanded="true" signature="3917:3937" ph="SELECT * FRO... orders" />
-            <marker date="1542704127878" expanded="true" signature="4291:4341" ph="SELECT * FRO... orders" />
-            <marker date="1542704127878" expanded="true" signature="4652:4698" ph="SELECT * FRO... orders" />
-            <marker date="1542704127878" expanded="true" signature="5196:5240" ph="SELECT st_or... staff" />
-            <marker date="1542704127878" expanded="true" signature="5610:5666" ph="UPDATE staff... " />
-            <marker date="1542704127878" expanded="true" signature="5951:5999" ph="SELECT st_or... staff" />
-            <marker date="1542704127878" expanded="true" signature="6577:6617" ph="SELECT * FRO... orders" />
-            <marker date="1542704127878" expanded="true" signature="7092:7131" ph="DELETE FROM orders... " />
-            <marker date="1542704127878" expanded="true" signature="7581:7621" ph="SELECT * FRO... orders" />
-            <marker date="1542704127878" expanded="true" signature="8321:8390" ph="UPDATE orders... " />
-            <marker date="1542704127878" expanded="true" signature="8596:8710" ph="UPDATE pm... " />
-            <marker date="1542704127878" expanded="true" signature="8803:8857" ph="SELECT audit... staff" />
-            <marker date="1542704127878" expanded="true" signature="9049:9104" ph="SELECT audit... staff" />
-            <marker date="1542704127878" expanded="true" signature="9417:9484" ph="UPDATE staff... " />
-            <marker date="1542704127878" expanded="true" signature="10229:10296" ph="UPDATE staff... " />
-            <marker date="1542704127878" expanded="true" signature="10644:10711" ph="UPDATE orders... " />
-            <marker date="1542704127878" expanded="true" signature="10909:10966" ph="UPDATE orders... " />
-            <marker date="1542704127878" expanded="true" signature="11166:11223" ph="UPDATE orders... " />
+            <marker date="1542786155049" expanded="true" signature="1585:2285" ph="INSERT INTO orders... " />
+            <marker date="1542786155049" expanded="true" signature="2456:3103" ph="INSERT INTO pm... " />
+            <marker date="1542786155049" expanded="true" signature="3240:3631" ph="INSERT INTO client... " />
+            <marker date="1542786155049" expanded="true" signature="3939:3959" ph="SELECT * FRO... orders" />
+            <marker date="1542786155049" expanded="true" signature="4313:4363" ph="SELECT * FRO... orders" />
+            <marker date="1542786155049" expanded="true" signature="4674:4720" ph="SELECT * FRO... orders" />
+            <marker date="1542786155049" expanded="true" signature="5218:5262" ph="SELECT st_or... staff" />
+            <marker date="1542786155049" expanded="true" signature="5632:5688" ph="UPDATE staff... " />
+            <marker date="1542786155049" expanded="true" signature="5973:6021" ph="SELECT st_or... staff" />
+            <marker date="1542786155049" expanded="true" signature="6599:6639" ph="SELECT * FRO... orders" />
+            <marker date="1542786155049" expanded="true" signature="7114:7153" ph="DELETE FROM orders... " />
+            <marker date="1542786155049" expanded="true" signature="7603:7643" ph="SELECT * FRO... orders" />
+            <marker date="1542786155049" expanded="true" signature="8343:8412" ph="UPDATE orders... " />
+            <marker date="1542786155049" expanded="true" signature="8618:8732" ph="UPDATE pm... " />
+            <marker date="1542786155049" expanded="true" signature="8825:8879" ph="SELECT audit... staff" />
+            <marker date="1542786155049" expanded="true" signature="9071:9126" ph="SELECT audit... staff" />
+            <marker date="1542786155049" expanded="true" signature="9439:9506" ph="UPDATE staff... " />
+            <marker date="1542786155049" expanded="true" signature="10251:10318" ph="UPDATE staff... " />
+            <marker date="1542786155049" expanded="true" signature="10666:10733" ph="UPDATE orders... " />
+            <marker date="1542786155049" expanded="true" signature="10931:10988" ph="UPDATE orders... " />
+            <marker date="1542786155049" expanded="true" signature="11188:11245" ph="UPDATE orders... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client_mng.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="36" column="119" lean-forward="true" selection-start-line="36" selection-start-column="119" selection-end-line="36" selection-end-column="119" />
+          <folding>
+            <marker date="1542788279976" expanded="true" signature="724:1086" ph="INSERT INTO client... " />
+            <marker date="1542788279976" expanded="true" signature="1276:1296" ph="SELECT * FRO... client" />
+            <marker date="1542788279976" expanded="true" signature="1763:1783" ph="SELECT * FRO... client" />
+            <marker date="1542788279976" expanded="true" signature="1763:1811" ph="SELECT * FRO... client" />
+            <marker date="1542788279976" expanded="true" signature="2165:2215" ph="SELECT * FRO... client" />
+            <marker date="1542788279976" expanded="true" signature="2165:2241" ph="SELECT * FRO... client" />
+            <marker date="1542788279976" expanded="true" signature="2552:2598" ph="SELECT * FRO... client" />
+            <marker date="1542788279976" expanded="true" signature="2552:2624" ph="SELECT * FRO... client" />
+            <marker date="1542788279976" expanded="true" signature="2984:3022" ph="DELETE FROM client... " />
+            <marker date="1542788279976" expanded="true" signature="3375:3424" ph="SELECT * FRO... client" />
+            <marker date="1542788279976" expanded="true" signature="3737:3785" ph="SELECT * FRO... client" />
+            <marker date="1542788279976" expanded="true" signature="3737:3812" ph="SELECT * FRO... client" />
           </folding>
         </state>
       </provider>

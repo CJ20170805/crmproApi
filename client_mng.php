@@ -11,23 +11,23 @@ $flag = $_POST['flag'];
 
 if ($flag === 'add') {
     $client_name = $_POST['client_name'];
-    $client_type = $_POST['client_type'];
     $client_address = $_POST['client_address'];
     $client_link = $_POST['client_link'];
-    $client_intent = $_POST['client_intent'];
-    $sales_man = $_POST['sales_man'];
     $link_date = $_POST['link_date'];
-    $link_channel = $_POST['link_channel'];
     $desc_info = $_POST['desc_info'];
     $write_man = $_POST['write_man'];
     $files = $_POST['files'];
-
+    //intent client new add 1121
+    $ww_name = $_POST['ww_name'];
+    $shop_name = $_POST['shop_name'];
+    $shop_grade = $_POST['shop_grade'];
+    $shop_sort = $_POST['shop_sort'];
+    $shop_url = $_POST['shop_url'];
 //    echo $client_name.$sales_man;
 
-    $client_add = "INSERT INTO client (client_name, client_type, client_address, client_link,
-client_intent, sales_man, link_date, link_channel, desc_info, write_man, files) VALUES ('$client_name',
- '$client_type', '$client_address', '$client_link', '$client_intent', '$sales_man',
- '$link_date', '$link_channel', '$desc_info', '$write_man', '$files')";
+    $client_add = "INSERT INTO client (client_name, client_address, client_link,
+ link_date, desc_info, write_man, files, ww_name, shop_name, shop_grade, shop_industry, client_type, shop_url) VALUES ('$client_name',
+ '$client_address', '$client_link', '$link_date', '$desc_info', '$write_man', '$files', '$ww_name', '$shop_name', '$shop_grade', '$shop_sort', 'intent', '$shop_url')";
 
     if (mysqli_query($conn, $client_add)) {
         echo "AddSUC";
@@ -48,10 +48,11 @@ client_intent, sales_man, link_date, link_channel, desc_info, write_man, files) 
     $name = $_POST['name'];
     $depart = $_POST['depart'];
     $power = $_POST['power'];
+//    $fetch_str = $_POST['fetch_str'];
 
     if ($power === "分公司总经理" || $power === "" || $power === "技术总监" || $power === "销售总监") {
 
-        $order_fetch = "SELECT * FROM client";
+        $order_fetch = "SELECT * FROM client WHERE client_type = 'reach'";
         $orderRes = mysqli_query($conn, $order_fetch);
         $data =array();
         while($orderRow = mysqli_fetch_array($orderRes, MYSQL_ASSOC)){
@@ -64,7 +65,7 @@ client_intent, sales_man, link_date, link_channel, desc_info, write_man, files) 
 
     } elseif ($power === "BD经理" || $power === "AM") {
 
-        $order_fetch = "SELECT * FROM client WHERE sales_apart = '$depart'";
+        $order_fetch = "SELECT * FROM client WHERE sales_apart = '$depart' AND client_type = 'reach'";
         $orderRes = mysqli_query($conn, $order_fetch);
         $data =array();
         while($orderRow = mysqli_fetch_array($orderRes, MYSQL_ASSOC)){
@@ -75,7 +76,7 @@ client_intent, sales_man, link_date, link_channel, desc_info, write_man, files) 
 
     } else {
 
-        $order_fetch = "SELECT * FROM client WHERE sales_man = '$name'";
+        $order_fetch = "SELECT * FROM client WHERE sales_man = '$name' AND client_type = 'reach'";
         $orderRes = mysqli_query($conn, $order_fetch);
         $data =array();
         while($orderRow = mysqli_fetch_array($orderRes, MYSQL_ASSOC)){
@@ -99,6 +100,37 @@ client_intent, sales_man, link_date, link_channel, desc_info, write_man, files) 
         echo "Del false".mysqli_error($conn);
     };
 
+} elseif($flag === 'fetchIntent'){
+
+    $power = $_POST['power'];
+    $writeM = $_POST['writeM'];
+//    $fetch_str = $_POST['fetch_str'];
+
+    if ($power === "分公司总经理" || $power === "") {
+
+        $order_fetch = "SELECT * FROM client WHERE client_type = 'intent'";
+        $orderRes = mysqli_query($conn, $order_fetch);
+        $data =array();
+        while($orderRow = mysqli_fetch_array($orderRes, MYSQL_ASSOC)){
+            array_push($data, $orderRow);
+        };
+
+        $orderJson = json_encode($data);
+
+        echo $orderJson;
+
+    } else {
+
+        $order_fetch = "SELECT * FROM client WHERE write_man = '$writeM' AND client_type = 'intent'";
+        $orderRes = mysqli_query($conn, $order_fetch);
+        $data =array();
+        while($orderRow = mysqli_fetch_array($orderRes, MYSQL_ASSOC)){
+            array_push($data, $orderRow);
+        };
+
+        $orderJson = json_encode($data);
+        echo $orderJson;
+    }
 } else{
     echo "Unset client flag!";
 };

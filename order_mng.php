@@ -91,9 +91,9 @@ client_name, buy_serv, serv_price, time_limit, pay_price, pay_id, rec_id, deal_i
 ////   // client ADD
 //
     $client_add = "INSERT INTO client (client_name, client_address, client_link,
-sales_man, write_man, shop_name, shop_url, shop_id, shop_grade, shop_industry, shop_type, files, combo_type) VALUES ('$link_man',
+sales_man, write_man, shop_name, shop_url, shop_id, shop_grade, shop_industry, shop_type, files, combo_type, client_type) VALUES ('$link_man',
  '$shop_address', '$link_methods', '$sales_man', '$write_man', '$shop_name',
- '$shop_url', '$shop_id', '$shop_grade', '$shop_industry', '$shop_type', '$some_img', '$combo_info')";
+ '$shop_url', '$shop_id', '$shop_grade', '$shop_industry', '$shop_type', '$some_img', '$combo_info', 'reach')";
 
     mysqli_query($conn, $client_add);
 

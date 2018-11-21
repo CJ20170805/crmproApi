@@ -134,7 +134,11 @@ include "./connect_db.php";
 //   shop_type VARCHAR(30) NOT NULL,
 //   combo_type VARCHAR(30) NOT NULL,
 //   sales_apart VARCHAR(30),
+//   link_date VARCHAR(30),
+//   desc_info VARCHAR(30),
+//   client_type VARCHAR(30),
 //   files VARCHAR (1000),
+//   ww_name VARCHAR(30),
 //   reg_date TIMESTAMP
 //   )";
 //

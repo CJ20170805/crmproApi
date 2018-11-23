@@ -131,6 +131,25 @@ if ($flag === 'add') {
         $orderJson = json_encode($data);
         echo $orderJson;
     }
+} elseif ($flag === 'updateIntent') {
+    $id = $_POST['id'];
+    $client_name = $_POST['client_name'];
+    $client_link = $_POST['client_link'];
+    $link_date = $_POST['link_date'];
+    $ww_name = $_POST['ww_name'];
+    $client_address = $_POST['client_address'];
+    $shop_name = $_POST['shop_name'];
+    $shop_industry = $_POST['shop_industry'];
+    $shop_grade = $_POST['shop_grade'];
+    $desc = $_POST['desc'];
+//    echo $id.$client_name.$shop_industry;
+
+    $up = "UPDATE client SET client_name = '$client_name', client_link = '$client_link', link_date = '$link_date', ww_name = '$ww_name', client_address = '$client_address', shop_name = '$shop_name', shop_industry = '$shop_industry', shop_grade = '$shop_grade', desc_info = '$desc' WHERE id = '$id'";
+    if(mysqli_query($conn, $up)){
+        echo "upSuc";
+    } else {
+        echo "up fail".mysqli_error($conn);
+    };
 } else{
     echo "Unset client flag!";
 };

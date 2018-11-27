@@ -138,14 +138,16 @@ $sid = $_GET['sid'];
 //    echo $end."ConditionFetch!!!!".$begin;
 
 if($bn && $ed !== ""){
+
     $client_fetch = "SELECT * FROM pm WHERE reg_date BETWEEN '$bn' AND '$ed'";
     $clientRes = mysqli_query($conn, $client_fetch);
     $data =array();
     while($row = mysqli_fetch_array($clientRes, MYSQL_ASSOC)){
         array_push($data, $row);
     };
+    $name = date("Y-m-d-h:i:s")."业绩导出";
+    $excel = exportExcel($data, $name);
 
-    $excel = exportExcel($data, 'PerformanceDataExport');
 } elseif ($sid !== ""){
 //    echo gettype($sid);
 //   $ids = explode(",", $sid);
@@ -156,7 +158,8 @@ if($bn && $ed !== ""){
         array_push($data2, $row);
     };
 
-    $excel2 = exportExcel($data2, 'PerformanceDataExport');
+    $name = date("Y-m-d-h:i:s")."业绩导出";
+    $excel2 = exportExcel($data2, $name);
 
 } else {
     exit;

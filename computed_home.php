@@ -13,7 +13,7 @@ if ($flag === 'myClient') {
 
     $user_name = $_POST['user_name'];
 
-    $client_fetch = "SELECT id FROM client WHERE sales_man = '$user_name'";
+    $client_fetch = "SELECT id FROM client WHERE write_man = '$user_name'";
 
     $res = mysqli_query($conn, $client_fetch);
     $data =array();

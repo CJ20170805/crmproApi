@@ -67,12 +67,14 @@ if (mysqli_query($conn, $insert_db)){
     $school_name = $_POST['school_name'];
     $major = $_POST['major'];
 
+    $newWord = $_POST['new_word'];
+
 	$ud = "UPDATE staff SET st_name = '$st_name', st_sex = '$st_sex',
  st_joinDate = '$st_joinDate', st_cardNum = '$st_cardNum', st_address = '$st_address',
   st_nowAddress = '$st_nowAddress', st_staffPhone = '$st_staffPhone', 
   st_staffPhone2 = '$st_staffPhone2', st_departmentVal = '$st_departmentVal',
    st_jobVal = '$st_jobVal',
-    st_elseInfo = '$st_elseInfo', whether_regular = '$whether_regular', regular_date = '$regular_date', nation = '$nation', edu_back = '$edu_back', school_name = '$school_name', major = '$major' WHERE id = '$st_id'";
+    st_elseInfo = '$st_elseInfo', whether_regular = '$whether_regular', regular_date = '$regular_date', nation = '$nation', edu_back = '$edu_back', school_name = '$school_name', major = '$major', st_word = '$newWord' WHERE id = '$st_id'";
 	if (mysqli_query($conn, $ud)){
        echo "Set Successs!!!!!";     
 	} else {

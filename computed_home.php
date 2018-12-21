@@ -8,45 +8,96 @@
 include "./connect_db.php";
 
 $flag = $_POST['flag'];
+$depart = $_POST['depart'];
 
 if ($flag === 'myClient') {
 
-    $user_name = $_POST['user_name'];
+    if ($depart == '其他,管理层'){
 
-    $client_fetch = "SELECT id FROM client WHERE write_man = '$user_name'";
+        $client_fetch = "SELECT id FROM client";
 
-    $res = mysqli_query($conn, $client_fetch);
-    $data =array();
-    while($row = mysqli_fetch_array($res, MYSQL_ASSOC)){
-        array_push($data, $row);
-    };
-    echo json_encode($data);
+        $res = mysqli_query($conn, $client_fetch);
+        $data =array();
+        while($row = mysqli_fetch_array($res, MYSQL_ASSOC)){
+            array_push($data, $row);
+        };
+        echo json_encode($data);
+
+    } else {
+
+        $user_name = $_POST['user_name'];
+
+        $client_fetch = "SELECT id FROM client WHERE write_man = '$user_name'";
+
+        $res = mysqli_query($conn, $client_fetch);
+        $data =array();
+        while($row = mysqli_fetch_array($res, MYSQL_ASSOC)){
+            array_push($data, $row);
+        };
+
+        echo json_encode($data);
+        
+    }
+
 
 } elseif ($flag === 'myOrder') {
 
-    $user_name = $_POST['user_name'];
+    if($depart == '其他,管理层') {
 
-    $order_fetch = "SELECT id FROM orders WHERE sales_man = '$user_name'";
 
-    $res = mysqli_query($conn, $order_fetch);
-    $data =array();
-    while($row = mysqli_fetch_array($res, MYSQL_ASSOC)){
-        array_push($data, $row);
-    };
-    echo json_encode($data);
+        $order_fetch = "SELECT id FROM orders";
+
+        $res = mysqli_query($conn, $order_fetch);
+        $data =array();
+        while($row = mysqli_fetch_array($res, MYSQL_ASSOC)){
+            array_push($data, $row);
+        };
+        echo json_encode($data);
+
+    } else{
+
+        $user_name = $_POST['user_name'];
+
+        $order_fetch = "SELECT id FROM orders WHERE sales_man = '$user_name'";
+
+        $res = mysqli_query($conn, $order_fetch);
+        $data =array();
+        while($row = mysqli_fetch_array($res, MYSQL_ASSOC)){
+            array_push($data, $row);
+        };
+        echo json_encode($data);
+
+    }
+
 
 } elseif ($flag === 'myPm') {
 
-    $user_name = $_POST['user_name'];
+    if($depart == '其他,管理层') {
 
-    $pm_fetch = "SELECT pay_price FROM pm WHERE reach_name = '$user_name' AND stu = '1'";
 
-    $res = mysqli_query($conn, $pm_fetch);
-    $data =array();
-    while($row = mysqli_fetch_array($res, MYSQL_ASSOC)){
-        array_push($data, $row);
-    };
-    echo json_encode($data);
+        $pm_fetch = "SELECT pay_price FROM pm WHERE stu = '1'";
+
+        $res = mysqli_query($conn, $pm_fetch);
+        $data =array();
+        while($row = mysqli_fetch_array($res, MYSQL_ASSOC)){
+            array_push($data, $row);
+        };
+        echo json_encode($data);
+
+    } else {
+
+        $user_name = $_POST['user_name'];
+
+        $pm_fetch = "SELECT pay_price FROM pm WHERE reach_name = '$user_name' AND stu = '1'";
+
+        $res = mysqli_query($conn, $pm_fetch);
+        $data =array();
+        while($row = mysqli_fetch_array($res, MYSQL_ASSOC)){
+            array_push($data, $row);
+        };
+        echo json_encode($data);
+
+    }
 
 } elseif ($flag === 'myPmDetail') {
 

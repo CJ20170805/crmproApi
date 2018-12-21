@@ -80,7 +80,7 @@ client_name, buy_serv, serv_price, time_limit, pay_price, pay_id, rec_id,
     $depart = $_POST['depart'];
     $power = $_POST['power'];
 
-    if ($power === "分公司总经理" || $power === "" || $power === "技术总监" || $power === "销售总监") {
+    if ($power === "分公司总经理" || $power === "" || $power === "技术总监" || $power === "销售总监" || $power === "人事行政专员") {
 
         $order_fetch = "SELECT * FROM pm WHERE stu = '1'";
         $orderRes = mysqli_query($conn, $order_fetch);

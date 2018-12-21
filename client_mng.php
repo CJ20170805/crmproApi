@@ -104,32 +104,91 @@ if ($flag === 'add') {
 
     $power = $_POST['power'];
     $writeM = $_POST['writeM'];
-//    $fetch_str = $_POST['fetch_str'];
+    // pagination
+    $curPage = $_POST['cur_page'];
+    $pageSize = $_POST['page_size'];
+    $cur = ($curPage - 1) * $pageSize;
+//    $fetch_str = $_POST['fetch_str']
+
+//   @param (Boolean) f_flag  whether use the filter query?
+
+    $filterFlag = $_POST['f_flag'];
 
     if ($power === "分公司总经理" || $power === "") {
 
-        $order_fetch = "SELECT * FROM client WHERE client_type = 'intent'";
-        $orderRes = mysqli_query($conn, $order_fetch);
-        $data =array();
-        while($orderRow = mysqli_fetch_array($orderRes, MYSQL_ASSOC)){
-            array_push($data, $orderRow);
-        };
+        if ($filterFlag === 'true'){
 
-        $orderJson = json_encode($data);
+            $count = "SELECT COUNT(*) FROM client WHERE client_type = 'intent' AND write_man = '$writeM'";
+            $countRes = mysqli_query($conn, $count);
+            $countData = mysqli_fetch_array($countRes);
+            $countNum = $countData['COUNT(*)'];
+//        print_r($countData);
 
-        echo $orderJson;
+            // 从开始位置 ， 查x条
+
+            $order_fetch = "SELECT * FROM client WHERE client_type = 'intent' AND write_man = '$writeM' limit $cur,$pageSize";
+            $orderRes = mysqli_query($conn, $order_fetch);
+            $data =array();
+            while($orderRow = mysqli_fetch_array($orderRes, MYSQL_ASSOC)){
+                array_push($data, $orderRow);
+            };
+//
+//        $orderJson = json_encode($data);
+
+            $results = array(
+                'total'=>$countNum,
+                'data'=>$data
+            );
+
+            echo json_encode($results);
+
+        } else{
+
+            $count = "SELECT COUNT(*) FROM client WHERE client_type = 'intent'";
+            $countRes = mysqli_query($conn, $count);
+            $countData = mysqli_fetch_array($countRes);
+            $countNum = $countData['COUNT(*)'];
+//        print_r($countData);
+
+            // 从开始位置 ， 查x条
+
+            $order_fetch = "SELECT * FROM client WHERE client_type = 'intent' limit $cur,$pageSize";
+            $orderRes = mysqli_query($conn, $order_fetch);
+            $data =array();
+            while($orderRow = mysqli_fetch_array($orderRes, MYSQL_ASSOC)){
+                array_push($data, $orderRow);
+            };
+//
+//        $orderJson = json_encode($data);
+
+            $results = array(
+                'total'=>$countNum,
+                'data'=>$data
+            );
+            echo json_encode($results);
+        }
 
     } else {
+        $count = "SELECT COUNT(*) FROM client WHERE write_man = '$writeM' AND client_type = 'intent'";
+        $countRes = mysqli_query($conn, $count);
+        $countData = mysqli_fetch_array($countRes);
+        $countNum = $countData['COUNT(*)'];
 
-        $order_fetch = "SELECT * FROM client WHERE write_man = '$writeM' AND client_type = 'intent'";
+        $order_fetch = "SELECT * FROM client WHERE write_man = '$writeM' AND client_type = 'intent' limit $cur,$pageSize";
         $orderRes = mysqli_query($conn, $order_fetch);
         $data =array();
         while($orderRow = mysqli_fetch_array($orderRes, MYSQL_ASSOC)){
             array_push($data, $orderRow);
         };
 
-        $orderJson = json_encode($data);
-        echo $orderJson;
+        $results = array(
+            'total'=>$countNum,
+            'data'=>$data
+        );
+        echo json_encode($results);
+
+//        $orderJson = json_encode($data);
+//        echo $orderJson;
     }
 } elseif ($flag === 'updateIntent') {
     $id = $_POST['id'];

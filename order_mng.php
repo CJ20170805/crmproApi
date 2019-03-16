@@ -358,6 +358,20 @@ sales_man, write_man, shop_name, shop_url, shop_id, shop_grade, shop_industry, s
             echo "auditChange fail2".mysqli_error($conn);
         };
     }
+} else if ($flag === 'changePayCost') {
+
+  $order_id = $_POST['order_id'];
+  $new_cost = $_POST['new_cost'];
+
+  $changeSql = "UPDATE orders SET pay_cost = '$new_cost' WHERE id = '$order_id'";
+
+   if(mysqli_query($conn, $changeSql)){
+        echo "paycostchangesuc";
+    } else {
+        echo "paycostchangefail".mysqli_error($conn);
+    };
+
+
 } else {
     echo "Order Error(No set flag?)";
 };
